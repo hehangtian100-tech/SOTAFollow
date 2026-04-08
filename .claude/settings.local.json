@@ -19,7 +19,8 @@
       "Bash(ssh-keyscan github.com)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" --max-time 10 \"https://cdn.jsdelivr.net/gh/HzcIrving/SOTAFollow@9a52a03/WorldModel/imgs/fig3_architecture.png\")",
       "Bash(curl -fsSL https://skillhub.cn/install/skillhub.md)",
-      "Bash(bash -s -- --cli-only)"
+      "Bash(bash -s -- --cli-only)",
+      "Bash(git mv:*)"
     ]
   }
 }
