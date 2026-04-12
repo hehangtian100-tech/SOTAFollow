@@ -105,6 +105,8 @@ $$p_\theta(a_{1:H} \mid o, l) = p_\theta(a_{1:H} \mid z(o, l))$$
 
 ### 4.2 模型架构
 
+![Fast-WAM Architecture](https://arxiv.org/html/2603.16666v2/x2.png)
+
 **图2(a)：Fast-WAM 模型架构**
 
 ```
@@ -128,8 +130,6 @@ $$p_\theta(a_{1:H} \mid o, l) = p_\theta(a_{1:H} \mid z(o, l))$$
 │   (所有 token 通过交叉注意力访问语言嵌入)                              │
 └──────────────────────────────────────────────────────────────────────┘
 ```
-
-![Fast-WAM Architecture](https://arxiv.org/html/2603.16666v2/x2.png)
 
 **图2(b)：训练和推理掩码**
 

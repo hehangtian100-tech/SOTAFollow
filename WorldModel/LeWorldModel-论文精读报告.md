@@ -101,6 +101,8 @@ VinePPG 需要预训练+冻结编码器，LeWM 的 SIGReg 可端到端优化。
 
 ### 4.3 架构设计
 
+![LeWorldModel Architecture](https://arxiv.org/html/2603.19312v1/x2.png)
+
 ```
 图像 o_t (H×W×3)
     ↓
@@ -118,8 +120,6 @@ VinePPG 需要预训练+冻结编码器，LeWM 的 SIGReg 可端到端优化。
     ↓
 [SIGReg 正则器]  → 强制高斯分布
 ```
-
-![LeWorldModel Architecture](https://arxiv.org/html/2603.19312v1/x2.png)
 
 **关键设计决策：**
 
@@ -274,8 +274,6 @@ def plan_with_lewm(encoder, predictor, current_obs, num_samples=1000):
 LeWM 实现了 48 倍规划加速，源于轻量级架构（15M vs 基础模型规模）。
 
 ### 6.2 消融实验
-
-![LeWorldModel Ablations](https://arxiv.org/html/2603.19312v1/x6.png)
 
 #### 6.2.1 SIGReg 投影数量的影响
 
