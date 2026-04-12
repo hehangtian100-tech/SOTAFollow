@@ -247,25 +247,12 @@ $$\mathcal{L} = \mathcal{L}_{\text{act}} + \lambda \mathcal{L}_{\text{vid}}$$
 
 **图4：真实世界毛巾折叠任务结果**
 
-```
-                    成功率 vs 平均完成时间
-         ▲
-    90% │                    ◆ Fast-WAM-IDM (85%, ~75s)
-        │               ◇ π₀.₅ (90%, ~55s)
-    80% │          ◆
-        │     ◆ Fast-WAM (75%, ~60s)
-    70% │    ◇
-        │
-    60% │ ◆ Fast-WAM-Joint (65%, ~80s)
-        │
-    10% │ ✕ Fast-WAM w/o co-train (10%, ~120s)
-        └──────────────────────────────────────▶ 完成时间(s)
-              40s    60s    80s    100s   120s
-```
+![Fast-WAM Real-World Experiments](https://arxiv.org/html/2603.16666v2/x4.png)
 
-**关键发现**：
-- 移除 video co-training：**仅 10% 成功率** + 最长完成时间（~120s）
-- 差距远大于三种 variant 之间的差异
+**关键发现**（论文原文描述）：
+- **π₀.₅**（具身预训练）：最高成功率 + 最短完成时间
+- **Fast-WAM 家族**：Fast-WAM-IDM 成功率最高，Fast-WAM 完成时间更短
+- **移除 video co-training**：性能显著下降（论文原文："substantially outperform π₀.₅ without pretraining"）
 - **推理延迟**：Fast-WAM **190ms**，imagine-then-execute WAMs **>760ms**（4x+ 差距）
 
 ### 5.3 受控实验结论
