@@ -16,7 +16,15 @@
 | MV-VDP | arXiv 2026 | 多视角视频扩散策略，视频基础模型联合预测 RGB 视频 + 热力图，5 demos Meta-World 89.1% | [MV-VDP_精读报告.md](./WorldModel/MV-VDP_精读报告.md) |
 | LeWorldModel | arXiv 2026 | 首个端到端 JEPA 世界模型，SIGReg 正则器防崩溃，15M 参数单 GPU 可训，48x 规划加速 | [LeWorldModel-论文精读报告.md](./WorldModel/LeWorldModel-论文精读报告.md) |
 | DreamerAD | arXiv 2026 | 基于解析世界模型的自动驾驶车辆控制，Shortcut Forcing 80× 加速，EPDMS 87.7 SOTA | [DreamerAD-论文解读.md](./WorldModel/DreamerAD-论文解读.md) |
+| Fast-WAM | arXiv 2026 | 北大&华为：World Action Model 测试时想象是否必要？端到端规划加速 48× | [Fast-WAM_精读报告.md](./WorldModel/Fast-WAM_精读报告.md) |
 
 ## RL
 
 （暂无论文）
+
+## FM基础知识
+
+| 主题 | 简介 | 文档 |
+|------|------|------|
+| VQVAE 视觉 Tokenizer | Codebook 机制、视觉表征学习、World Model 视觉编码器 | [VQVAE视觉Tokenizer详解.md](./FM基础知识/VQVAE视觉Tokenizer详解.md) |
+| World Model / VLA 自回归框架 | 掩码设计、Action Token、VLA 与 World Model 结合的自回归范式 | [WorldModel-VLA自回归框架详解.md](./FM基础知识/WorldModel-VLA自回归框架详解.md) |
