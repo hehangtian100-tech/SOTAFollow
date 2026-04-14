@@ -4,6 +4,7 @@
 
 | 论文 | 会议/年份 | 核心贡献 | 文档 |
 |------|----------|----------|------|
+| Vega | arXiv 2026 | 统一 Vision-Language-World-Action 模型，自然语言指令驾驶，InstructScene 100K 数据集，NAVSIM EPDMS 89.4 SOTA | [Vega_精读报告.md](./VLA/Vega_精读报告.md) |
 | Uni-World VLA | ECCV 2026 | 交错式闭环 VLA，统一生成未来帧+动作 tokens | [→ WorldModel](./WorldModel/Uni-World%20VLA-论文精读-ECCV2026.md) |
 | DVGT-2 | arXiv 2026 | Vision-Geometry-Action 端到端自动驾驶，O(1) 帧复杂度，NAVSIM PDMS 90.3 | [DVGT-2_精读报告.md](./VLA/DVGT-2_精读报告.md) |
 | Actuate 2025 | 视频 2026 | Sergey Levine & Liyiming Ke：第二代 VLA 与机器人 Foundation Model，RL Post-training 是模仿学习的关键补充 | [Actuate2025_SergeyLevine_精读报告.md](./VLA/Actuate2025_SergeyLevine_精读报告.md) |
