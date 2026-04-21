@@ -47,6 +47,7 @@
 |------|------|------|
 | **大模型 Roadmap** | LLM 基础知识全景图：Transformer架构、主流模型、预训练、后训练、量化压缩、MoE、RAG&Agent、部署加速、模型评估、其他结构（SSM/Mamba等） | [大模型Roadmap.md](./FM基础知识/大模型Roadmap.md) |
 | TiTok | 统一视觉 Tokenizer，1D离散化 + VQ-GAN，SoTA 图像重建 + 视频理解 | [TiTok-论文精读-arXiv2406.07550.md](./FM基础知识/TiTok-论文精读-arXiv2406.07550.md) |
+| TiTok-1D Tokenization | 图像 1D Tokenization 学习笔记：信息密度自适应分配、背景压缩、主体细节精雕 | [TiTok-1D-Tokenization-学习笔记.md](./FM基础知识/TiTok-1D-Tokenization-学习笔记.md) |
 | VQVAE 视觉 Tokenizer | Codebook 机制、视觉表征学习、World Model 视觉编码器 | [VQVAE视觉Tokenizer详解.md](./FM基础知识/VQVAE视觉Tokenizer详解.md) |
 | World Model / VLA 自回归框架 | 掩码设计、Action Token、VLA 与 World Model 结合的自回归范式 | [WorldModel-VLA自回归框架详解.md](./FM基础知识/WorldModel-VLA自回归框架详解.md) |
 | LoRA (参数高效微调) | Low-Rank Adaptation 原始论文精读，低秩适应机制、缩放因子设计 | [LoRA-论文精读-arXiv2106.09685.md](./FM基础知识/LoRA-论文精读-arXiv2106.09685.md) |
@@ -57,3 +58,6 @@
 | **DCT（离散余弦变换）** | 频域信号处理基础：DCT-II定义、频率物理含义、与FFT对比，及其在MINT频域解耦中的作用 | [DCT（离散余弦变换）详解.md](./FM基础知识/DCT（离散余弦变换）详解.md) |
 | **Kimi Attention Residuals** | Moonshot AI：跨层选择性注意力残差连接，相同 Loss 下节省 25% 计算资源，Infra 是结构创新上限 | [Kimi_Attention_Residuals_精读报告.md](./FM基础知识/Kimi_Attention_Residuals_精读报告.md) |
 | **RoPE / 3DPE / mRoPE** | 位置编码技术详解：Sinusoidal、Learned、ALiBi、RoPE、2D/3DPE、mRoPE（DVGT-2 时序融合） | [RoPE及3DPE技术详解.md](./FM基础知识/RoPE及3DPE技术详解.md) |
+| **流式三维重建 GCT** | Ant Group：几何上下文注意力替代全连接注意力，ETH3D 98.98% F1 + 20 FPS，突破长序列漂移瓶颈 | [流式三维重建-几何上下文Transformer-精读报告.md](./FM基础知识/流式三维重建-几何上下文Transformer-精读报告.md) |
+| PETR | 自动驾驶 3D 检测：3D 位置编码融合相机几何，DETR 范式端到端检测 | [PETR-论文精读.md](./FM基础知识/PETR-论文精读.md) |
+| PETR V2 | PETR 改进：Feature-Guided Position Encoding、3D 坐标对齐时序融合 | [PETR V2-论文精读.md](./FM基础知识/PETR%20V2-论文精读.md) |
