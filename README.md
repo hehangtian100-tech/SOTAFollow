@@ -6,8 +6,8 @@
 
 | 分类 | 简介 | 文档 |
 |------|------|------|
-| [RL](./面筋/RL/) | 强化学习相关 | [MoE_RL_训推不一致](./面筋/RL/MoE_RL_训推不一致.md)（MoE做RL训练-推理不一致：Routing Replay、GSPO） |
-| [LLM](./面筋/LLM/) | 大语言模型相关 | [LLM面试深度知识点-五大模块详解](./面筋/LLM/LLM面试深度知识点-五大模块详解.md) |
+| [RL](./面筋/RL/) | 强化学习相关 | [MoE_RL_训推不一致](./面筋/RL/MoE_RL_训推不一致.md)（MoE做RL训练-推理不一致）、[智元RL技术凉经](./面筋/RL/智元RL技术凉经.md)（RL后训练面试题）、[GRPO vs SFT数据差异](./面筋/RL/GRPO_vs_SFT训练数据差异.md)（SFT与GRPO数据需求、难度分布、格式差异） |
+| [LLM](./面筋/LLM/) | 大语言模型相关 | [LLM面试深度知识点-五大模块详解](./面筋/LLM/LLM面试深度知识点-五大模块详解.md)、[LLM面试入门知识点](./面筋/LLM/LLM面试入门知识点.md) |
 | [VLA](./面筋/VLA/) | Vision-Language-Action 相关 | （待填充） |
 | [WM](./面筋/WM/) | WorldModel 相关 | （待填充） |
 
@@ -33,6 +33,7 @@
 | LeWorldModel | arXiv 2026 | 首个端到端 JEPA 世界模型，SIGReg 正则器防崩溃，15M 参数单 GPU 可训，48x 规划加速 | [LeWorldModel-论文精读报告.md](./WorldModel/LeWorldModel-论文精读报告.md) |
 | DreamerAD | arXiv 2026 | 基于解析世界模型的自动驾驶车辆控制，Shortcut Forcing 80× 加速，EPDMS 87.7 SOTA | [DreamerAD-论文解读.md](./WorldModel/DreamerAD-论文解读.md) |
 | Fast-WAM | arXiv 2026 | 北大&华为：World Action Model 测试时想象是否必要？端到端规划加速 48× | [Fast-WAM_精读报告.md](./WorldModel/Fast-WAM_精读报告.md) |
+| Latent-WAM | arXiv 2026 | 中科院&长安汽车：SCWE 16-query 场景压缩 + WorldMirror 几何蒸馏 + DLWM 因果世界建模，感知自由 89.3 EPDMS SOTA，104M 参数 | [Latent-WAM_精读报告.md](./WorldModel/Latent-WAM_精读报告.md) |
 | **硅谷101-世界模型深度解读** | B站 2026 | 系统性拆解世界模型定义、三层研发结构（感知→预测→控制）、四大技术路线（视频生成/3D空间智能/智能体训练/JEPA），深度分析对机器人/自动驾驶/内容产业的颠覆，附 LeCun/李飞飞等关键人物观点 | [世界模型_视频笔记_硅谷101.md](./WorldModel/世界模型_视频笔记_硅谷101.md) |
 
 ## RL
@@ -41,6 +42,8 @@
 |------|----------|----------|------|
 | **FlowGRPO** | arXiv 2025 | 首个将 GRPO 引入 Flow Matching 的工作：marginal-preserving ODE-to-SDE 转换（推导 reverse-time SDE 并离散化）+ Denoising Reduction（训练10步/推理全步），SD3.5-M GenEval 63%→95%，几乎无 reward hacking | [FlowGRPO_精读报告.md](./RL/FlowGRPO_精读报告.md) |
 | PPO 精读 | - | 策略优化算法详解：Clipped Surrogate、GAE 优势估计、与 TRPO/SAC/DQN 对比、Python 伪代码、面试常见问题 | [PPO_精读报告.md](./RL/PPO_精读报告.md) |
+| **RAD** | NeurIPS 2025 | 首个3DGS-RL端到端自动驾驶训练框架，RL+IL协同优化解决因果混淆和开环gap，碰撞率降低3倍 | [RAD_精读报告.md](./RL/RAD_精读报告.md) |
+| **RAD-2** | arXiv 2026 | Generator-Discriminator框架：扩散生成器+RL判别器，TCR-GRPO+On-policy Gen Opt算法，BEV-Warp高吞吐仿真，碰撞率较扩散规划器降低56% | [RAD-2_精读报告.md](./RL/RAD-2_精读报告.md) |
 
 ## FM基础知识
 
@@ -48,6 +51,7 @@
 |------|------|------|
 | **大模型 Roadmap** | LLM 基础知识全景图：Transformer架构、主流模型、预训练、后训练、量化压缩、MoE、RAG&Agent、部署加速、模型评估、其他结构（SSM/Mamba等） | [大模型Roadmap.md](./FM基础知识/大模型Roadmap.md) |
 | TiTok | 统一视觉 Tokenizer，1D离散化 + VQ-GAN，SoTA 图像重建 + 视频理解 | [TiTok-论文精读-arXiv2406.07550.md](./FM基础知识/TiTok-论文精读-arXiv2406.07550.md) |
+| TiTok-1D Tokenization | 图像 1D Tokenization 学习笔记：信息密度自适应分配、背景压缩、主体细节精雕 | [TiTok-1D-Tokenization-学习笔记.md](./FM基础知识/TiTok-1D-Tokenization-学习笔记.md) |
 | VQVAE 视觉 Tokenizer | Codebook 机制、视觉表征学习、World Model 视觉编码器 | [VQVAE视觉Tokenizer详解.md](./FM基础知识/VQVAE视觉Tokenizer详解.md) |
 | World Model / VLA 自回归框架 | 掩码设计、Action Token、VLA 与 World Model 结合的自回归范式 | [WorldModel-VLA自回归框架详解.md](./FM基础知识/WorldModel-VLA自回归框架详解.md) |
 | LoRA (参数高效微调) | Low-Rank Adaptation 原始论文精读，低秩适应机制、缩放因子设计 | [LoRA-论文精读-arXiv2106.09685.md](./FM基础知识/LoRA-论文精读-arXiv2106.09685.md) |
@@ -58,3 +62,15 @@
 | **DCT（离散余弦变换）** | 频域信号处理基础：DCT-II定义、频率物理含义、与FFT对比，及其在MINT频域解耦中的作用 | [DCT（离散余弦变换）详解.md](./FM基础知识/DCT（离散余弦变换）详解.md) |
 | **Kimi Attention Residuals** | Moonshot AI：跨层选择性注意力残差连接，相同 Loss 下节省 25% 计算资源，Infra 是结构创新上限 | [Kimi_Attention_Residuals_精读报告.md](./FM基础知识/Kimi_Attention_Residuals_精读报告.md) |
 | **RoPE / 3DPE / mRoPE** | 位置编码技术详解：Sinusoidal、Learned、ALiBi、RoPE、2D/3DPE、mRoPE（DVGT-2 时序融合） | [RoPE及3DPE技术详解.md](./FM基础知识/RoPE及3DPE技术详解.md) |
+| **流式三维重建 GCT** | Ant Group：几何上下文注意力替代全连接注意力，ETH3D 98.98% F1 + 20 FPS，突破长序列漂移瓶颈 | [流式三维重建-几何上下文Transformer-精读报告.md](./FM基础知识/流式三维重建-几何上下文Transformer-精读报告.md) |
+| PETR | 自动驾驶 3D 检测：3D 位置编码融合相机几何，DETR 范式端到端检测 | [PETR-论文精读.md](./FM基础知识/PETR-论文精读.md) |
+| PETR V2 | PETR 改进：Feature-Guided Position Encoding、3D 坐标对齐时序融合 | [PETR V2-论文精读.md](./FM基础知识/PETR%20V2-论文精读.md) |
+
+## DailyAgent
+
+> AI 工具使用技巧、Agent 工作流、效率提升策略
+
+| 主题 | 简介 | 文档 |
+|------|------|------|
+| **Claude Code Context Rot & Rewind** | Claude Code 团队正式承认 1M 上下文会"腐烂"，25% 开始退化、50% 为拐点，Rewind 是 Thariq 最推荐的应对方案 | [ClaudeCode_context_rot_rewind.md](./DailyAgent/ClaudeCode/ClaudeCode_context_rot_rewind.md) |
+| **Hermes Agent 新手使用十大技巧** | 小红书视频：新安装、主辅模型配置、SOUL.md 定义、记忆机制、通道配置、hermes doctor、UI 接入、一键迁移、技能安装 | [Hermes_Agent_新手使用十大技巧.md](./DailyAgent/Hermes/Hermes_Agent_新手使用十大技巧.md) |
