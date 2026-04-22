@@ -40,6 +40,7 @@
 | 论文 | 会议/年份 | 核心贡献 | 文档 |
 |------|----------|----------|------|
 | **FlowGRPO** | arXiv 2025 | 首个将 GRPO 引入 Flow Matching 的工作：marginal-preserving ODE-to-SDE 转换（推导 reverse-time SDE 并离散化）+ Denoising Reduction（训练10步/推理全步），SD3.5-M GenEval 63%→95%，几乎无 reward hacking | [FlowGRPO_精读报告.md](./RL/FlowGRPO_精读报告.md) |
+| PPO 精读 | - | 策略优化算法详解：Clipped Surrogate、GAE 优势估计、与 TRPO/SAC/DQN 对比、Python 伪代码、面试常见问题 | [PPO_精读报告.md](./RL/PPO_精读报告.md) |
 
 ## FM基础知识
 
