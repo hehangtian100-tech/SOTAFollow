@@ -129,9 +129,13 @@ arXiv HTML 图片 URL 格式：`https://arxiv.org/html/{paper_id}v{version}/{xN}
 ### 优化推送流程
 
 1. 本地优化文档
-2. git add + git commit
-3. git push origin main
-4. 检查是否有多余文件变更（如本地残留文件），一并处理
+2. **自检 checklist**（push 前必须逐项确认）：
+   - [ ] 精读报告图片已插入对应章节（arXiv HTML URL：`https://arxiv.org/html/{id}v{version}/{xN}.png`），无独立"原图解析"章节
+   - [ ] 目标文件已 `ls` 确认存在于目标路径
+   - [ ] README 索引行格式与邻行完全一致（无多余 `**` 加粗、无多余空行）
+   - [ ] `git status` 显示的变更内容与预期完全吻合
+3. git add + git commit（commit message 规范：`[分类] 简短描述`）
+4. git push origin main，确认输出无报错
 
 ### Proofreader 校对优先级
 
