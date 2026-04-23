@@ -2,9 +2,11 @@
 
 > **论文信息**
 > - **标题**: Epona: Autoregressive Diffusion World Model for Autonomous Driving
-> - **来源**: arXiv:2506.24113, ICCV 2025
-> - **日期**: 2026-04-22
+> - **来源**: arXiv:2506.24113（来源：arXiv，未找到 ICCV 2025 记录）
+> - **日期**: 2025.06.30
 > - **分类**: WorldModel / 自动驾驶 / 扩散模型
+> - **机构**: 清华大学（Tsinghua）、Tencent 等（待完整确认）
+> - **作者**: Kaiwen Zhang, Zhenyu Tang, Xiaotao Hu, Xingang Pan, Xiaoyang Guo, Yuan Liu, Jingwei Huang, Li Yuan, Qian Zhang, Xiao-Xiao Long, Xun Cao, Wei Yin（待完整确认）
 
 ---
 
