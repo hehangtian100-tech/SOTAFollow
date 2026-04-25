@@ -34,8 +34,10 @@
 | MV-VDP | arXiv 2026 | 多视角视频扩散策略，视频基础模型联合预测 RGB 视频 + 热力图，5 demos Meta-World 89.1% | [MV-VDP_精读报告.md](./WorldModel/MV-VDP_精读报告.md) |
 | LeWorldModel | arXiv 2026 | 首个端到端 JEPA 世界模型，SIGReg 正则器防崩溃，15M 参数单 GPU 可训，48x 规划加速 | [LeWorldModel-论文精读报告.md](./WorldModel/LeWorldModel-论文精读报告.md) |
 | DreamerAD | arXiv 2026 | 基于解析世界模型的自动驾驶车辆控制，Shortcut Forcing 80× 加速，EPDMS 87.7 SOTA | [DreamerAD-论文解读.md](./WorldModel/DreamerAD-论文解读.md) |
+| **Epona** | arXiv 2025 | 自回归扩散世界模型，解耦时空因子分解 + Chain-of-Forward 训练，分钟级视频预测 + 实时轨迹规划 | [Epona-精读报告.md](./WorldModel/Epona-精读报告.md) |
 | Fast-WAM | arXiv 2026 | 北大&华为：World Action Model 测试时想象是否必要？端到端规划加速 48× | [Fast-WAM_精读报告.md](./WorldModel/Fast-WAM_精读报告.md) |
 | Latent-WAM | arXiv 2026 | 中科院&长安汽车：SCWE 16-query 场景压缩 + WorldMirror 几何蒸馏 + DLWM 因果世界建模，感知自由 89.3 EPDMS SOTA，104M 参数 | [Latent-WAM_精读报告.md](./WorldModel/Latent-WAM_精读报告.md) |
+| **Being-H0.7** | 2026 | BeingBeyond：潜在世界动作模型，先验-后验双分支联合对齐，MoT 高效实现，200K 小时自我中心视频预训练，6 仿真基准 SOTA | [Being-H0.7_精读报告.md](./WorldModel/Being-H0.7_精读报告.md) |
 | **硅谷101-世界模型深度解读** | B站 2026 | 系统性拆解世界模型定义、三层研发结构（感知→预测→控制）、四大技术路线（视频生成/3D空间智能/智能体训练/JEPA），深度分析对机器人/自动驾驶/内容产业的颠覆，附 LeCun/李飞飞等关键人物观点 | [世界模型_视频笔记_硅谷101.md](./WorldModel/世界模型_视频笔记_硅谷101.md) |
 
 ## RL
@@ -47,6 +49,7 @@
 | PPO 精读 | - | 策略优化算法详解：Clipped Surrogate、GAE 优势估计、与 TRPO/SAC/DQN 对比、Python 伪代码、面试常见问题 | [PPO_精读报告.md](./RL/PPO_精读报告.md) |
 | **RAD** | NeurIPS 2025 | 首个3DGS-RL端到端自动驾驶训练框架，RL+IL协同优化解决因果混淆和开环gap，碰撞率降低3倍 | [RAD_精读报告.md](./RL/RAD_精读报告.md) |
 | **RAD-2** | arXiv 2026 | Generator-Discriminator框架：扩散生成器+RL判别器，TCR-GRPO+On-policy Gen Opt算法，BEV-Warp高吞吐仿真，碰撞率较扩散规划器降低56% | [RAD-2_精读报告.md](./RL/RAD-2_精读报告.md) |
+| **NPO / AutoNPO** | arXiv 2026 | 近未来策略优化：𝒮=Q/V有效学习信号最大化，近未来checkpoint提供高质量+低方差辅助轨迹，Qwen3-VL-8B Avg 57.88→63.15，AutoNPO自适应干预 | [Near-Future_Policy_Optimization_精读报告.md](./RL/Near-Future_Policy_Optimization_精读报告.md) |
 
 ## FM基础知识
 

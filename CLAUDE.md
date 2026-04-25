@@ -160,6 +160,31 @@ git push
 
 arXiv HTML 图片 URL 格式：`https://arxiv.org/html/{paper_id}v{version}/{xN}.png`
 
+**非 arXiv 论文（如项目主页）插图方法：**
+
+当论文未发布于 arXiv（如 BeingBeyond 项目页面）时：
+
+1. **定位图片资源**（典型路径规律）：
+   ```
+   https://{domain}/projects/{project}/images/{image}.{ext}
+   ```
+
+2. **验证可访问性**：
+   ```bash
+   curl -sI https://research.beingbeyond.com/projects/being-h07/images/arch.webp
+   ```
+
+3. **Markdown 引用**：
+   ```markdown
+   ![架构图](https://research.beingbeyond.com/projects/being-h07/images/arch.webp)
+   ```
+
+| 论文发布方式 | 图片获取方式 |
+|------------|-------------|
+| arXiv | `arxiv.org/html/{id}v{version}/{xN}.png` |
+| 项目主页（无 arXiv） | 直接抓取 `{domain}/projects/{project}/images/` |
+| GitHub | `raw.githubusercontent.com/{org}/{repo}/main/{path}` |
+
 ### 数据验证要求
 
 - 数学公式必须与论文原文一致（从 arXiv HTML alttext 提取）
