@@ -38,6 +38,7 @@
 | Latent-WAM | arXiv 2026 | 中科院&长安汽车：SCWE 16-query 场景压缩 + WorldMirror 几何蒸馏 + DLWM 因果世界建模，感知自由 89.3 EPDMS SOTA，104M 参数 | [Latent-WAM_精读报告.md](./WorldModel/Latent-WAM_精读报告.md) |
 | **Being-H0.7** | 2026 | BeingBeyond：潜在世界动作模型，先验-后验双分支联合对齐，MoT 高效实现，200K 小时自我中心视频预训练，6 仿真基准 SOTA | [Being-H0.7_精读报告.md](./WorldModel/Being-H0.7_精读报告.md) |
 | **从表征学习角度看 Being-H0.7、Fast-WAM 与 π0.7** | 微信公众号 2026 | 具身智能之心×崔森老师：从表征学习视角审视 VLA 与 WAM 的收敛共识——中间表征需要动作+未来关键帧双重监督 | [→ 链接](./WorldModel/从表征学习角度看_Being-H0.7_Fast-WAM与π0.7.md) |
+| **世界模型 EP04：Motus（石麻笔记）** | 微信公众号 2026 | 渣大米 × 谭恒楷博士：Unified World Model，同时建模 VGM/IDM/WM/VLA 四种关系，多 expert joint attention 框架，数据金字塔六层设计 | [→ 链接](./WorldModel/世界模型EP04_Motus_石麻笔记.md) |
 | **硅谷101-世界模型深度解读** | B站 2026 | 系统性拆解世界模型定义、三层研发结构（感知→预测→控制）、四大技术路线（视频生成/3D空间智能/智能体训练/JEPA），深度分析对机器人/自动驾驶/内容产业的颠覆，附 LeCun/李飞飞等关键人物观点 | [世界模型_视频笔记_硅谷101.md](./WorldModel/世界模型_视频笔记_硅谷101.md) |
 
 ## RL
