@@ -6,5 +6,4 @@ check_lark_messages.py
 .learnings/
 tmp/*
 .codebase/
-sotafollow.log
 __pycache__/

@@ -167,7 +167,9 @@
 | 04-25 | 🌍 WM, 🔀 MERGE | Merge pull request #7 from zhangcollion/lingbot-va |
 | 04-24 | 🌳 COMMIT, 🎯 RL, 💬 LLM, 🤖 VLA | [VLA] 新增 VLA-JEPA 论文精读报告 |
 
-_共 20 条更新，查看 [完整日志](./sotafollow.log)_
+### 📜 [查看完整日志 `sotafollow.log`](./sotafollow.log)
+
+_自动按天聚合 · emoji风格 · GitHub快捷导航_
 
 ---
 
@@ -176,5 +178,3 @@ _共 20 条更新，查看 [完整日志](./sotafollow.log)_
 | 月份 | 总结 |
 |:----:|:-----|
 | 2026年4月 | [月度总结](./logs/月度总结_2026年04月.md) |
-
-> 🤖 实时日志 `[sotafollow.log](./sotafollow.log)` - 自动按天聚合
