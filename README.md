@@ -89,3 +89,13 @@
 |------|------|------|
 | **Claude Code Context Rot & Rewind** | Claude Code 团队正式承认 1M 上下文会"腐烂"，25% 开始退化、50% 为拐点，Rewind 是 Thariq 最推荐的应对方案 | [ClaudeCode_context_rot_rewind.md](./DailyAgent/ClaudeCode/ClaudeCode_context_rot_rewind.md) |
 | **Hermes Agent 新手使用十大技巧** | 小红书视频：新安装、主辅模型配置、SOUL.md 定义、记忆机制、通道配置、hermes doctor、UI 接入、一键迁移、技能安装 | [Hermes_Agent_新手使用十大技巧.md](./DailyAgent/Hermes/Hermes_Agent_新手使用十大技巧.md) |
+
+## Logs
+
+> 项目月度总结与更新日志
+
+| 月份 | 总结 |
+|------|------|
+| 2026年4月 | [月度总结_2026年04月.md](./logs/月度总结_2026年04月.md) |
+
+**实时日志**: `sotafollow.log`（项目根目录，emoji 风格）
