@@ -51,6 +51,17 @@ FILES_CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null | tr '\\n' ' ')
 # 调用 sota_logger 记录 commit
 python3 "$PROJECT_ROOT/tools/sota_logger.py" commit "$COMMIT_MSG" "$FILES_CHANGED" 2>/dev/null
 
+# 检查是否需要更新月度总结（每月1号）
+CURRENT_MONTH=$(date +%Y-%m)
+LOG_FILE="$PROJECT_ROOT/logs/monthly_summary_${CURRENT_MONTH}.md"
+
+# 如果月度总结不存在，生成它
+if [ ! -f "$LOG_FILE" ]; then
+    YEAR=$(date +%Y)
+    MONTH=$(date +%m)
+    python3 "$PROJECT_ROOT/tools/monthly_summary.py" "$YEAR" "$MONTH" 2>/dev/null
+fi
+
 exit 0
 '''
 
