@@ -90,12 +90,20 @@
 | **Claude Code Context Rot & Rewind** | Claude Code 团队正式承认 1M 上下文会"腐烂"，25% 开始退化、50% 为拐点，Rewind 是 Thariq 最推荐的应对方案 | [ClaudeCode_context_rot_rewind.md](./DailyAgent/ClaudeCode/ClaudeCode_context_rot_rewind.md) |
 | **Hermes Agent 新手使用十大技巧** | 小红书视频：新安装、主辅模型配置、SOUL.md 定义、记忆机制、通道配置、hermes doctor、UI 接入、一键迁移、技能安装 | [Hermes_Agent_新手使用十大技巧.md](./DailyAgent/Hermes/Hermes_Agent_新手使用十大技巧.md) |
 
-## Logs
+## 📖 最近更新
 
-> 项目月度总结与更新日志
+| 日期 | 类别 | 简报 |
+|------|------|------|
+| **04-26** 🌟 | ⚙️ CONFIG, 📚 DOCS, 🔬 FM, 🛠️ TOOLS | [FM] MEM文件夹时序融合启示章节大幅扩充：PE编码、时空融合、门控机制完整伪代码 | [Docs] 更新2026年4月月度总结 |
+| 04-25 | 🌍 WM, 🔀 MERGE | Merge pull request #7 from zhangcollion/lingbot-va | Merge pull request #6 from hehangtian100-tech/hht_... |
+| 04-24 | 🌳 COMMIT, 🎯 RL, 💬 LLM, 🤖 VLA | 'lingbot-va' | [VLA] 新增 VLA-JEPA 论文精读报告 |
+
+_共 20 条更新，查看 [完整日志](./sotafollow.log)_
+
+## 📚 历史日志
 
 | 月份 | 总结 |
 |------|------|
 | 2026年4月 | [月度总结_2026年04月.md](./logs/月度总结_2026年04月.md) |
 
-**实时日志**: `sotafollow.log`（项目根目录，emoji 风格）
+> 🤖 实时日志 `[sotafollow.log](./sotafollow.log)` - 自动按天聚合，GitHub 页面快捷导航
