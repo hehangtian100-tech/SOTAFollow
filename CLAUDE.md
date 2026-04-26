@@ -25,6 +25,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ├── FM基础知识/             # 基础模型知识详解
 ├── skills/                # Claude Code 自定义技能
 │   └── self-improving-agent/
+├── tools/                # 工具脚本
+│   ├── sota_logger.py   # 项目日志工具
+│   └── install_hooks.py  # Git Hook 安装脚本
 ├── .learnings/           # 经验记录（自我改进）
 ├── AgentMemResearch/      # (预留目录)
 ├── claudefollow/          # (预留目录)
@@ -281,3 +284,68 @@ arXiv HTML 图片 URL 格式：`https://arxiv.org/html/{paper_id}v{version}/{xN}
 ```
 
 强成功标准让你能独立循环。弱标准（"让它工作"）需要不断确认。
+
+## SotaLogger 日志工具
+
+项目使用 `tools/sota_logger.py` 记录所有更新日志。
+
+### 安装 Git Hook
+
+```bash
+python3 tools/install_hooks.py
+```
+
+安装后，每次 `git commit` 会自动记录到 `sotafollow.log`。
+
+### 命令行用法
+
+```bash
+# 记录 commit
+python3 tools/sota_logger.py commit "更新 VISTA 精读报告"
+
+# 记录精读报告
+python3 tools/sota_logger.py report "VISTA_精读报告.md" created "arXiv 2602.10983"
+python3 tools/sota_logger.py report "VISTA_精读报告.md" updated
+python3 tools/sota_logger.py report "VISTA_精读报告.md" optimized
+
+# 记录 PR merge
+python3 tools/sota_logger.py pr 42 "VISTA: 世界模型生成视觉子目标" "核心：层次化VLA架构"
+
+# 记录通用操作
+python3 tools/sota_logger.py operation "新增论文" "VISTA (arXiv 2602.10983)"
+
+# 查看日志
+python3 tools/sota_logger.py view 50
+tail -f sotafollow.log
+```
+
+### Python API
+
+```python
+from tools.sota_logger import SotaLogger
+
+logger = SotaLogger()
+logger.log_commit("更新 π0.7 精读报告", ["VLA/π0.7_精读报告.md"])
+logger.log_reading_report("VISTA_精读报告.md", "created", "arXiv 2602.10983")
+logger.log_operation("代码审查", "FlowGRPO 格式修复完成")
+```
+
+### 日志格式示例
+
+```
+📅 2026-04-22 ⏰ 14:32:15 🌳 [COMMIT]
+   📝 更新 π0.7 精读报告
+   🤖 VLA: VLA/π0.7_精读报告.md
+   └── 👤 Irving
+
+📅 2026-04-22 ⏰ 14:35:00 ✨ [READING REPORT] CREATED
+   📄 VISTA_精读报告.md
+   🏛️ arXiv 2602.10983
+   └── 🤖 Auto-logged by SotaLogger
+```
+
+### 日志文件
+
+- 位置：`./sotafollow.log`（项目根目录）
+- 轮转：文件达到 10MB 时自动轮转，保留最近 5 个文件
+
