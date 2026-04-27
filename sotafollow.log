@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 225 条_
+  _...还有 226 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **238 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **239 commits** | 📂 **0 files**
 
 ---
 
@@ -146,7 +146,7 @@
 - 修正CLAUDE.md和XXPO报告：删除幻觉内容
 - 更新CLAUDE.md：新增3项规范
 - 优化 GMP 精读报告：proofreader 校对 + 章节规范化 + 图片URL修复
-  _...还有 2 条_
+  _...还有 1 条_
 
 **⚡ OPT**
 - [优化] 精读报告MathJax及格式修复
@@ -167,6 +167,6 @@
 **🐛 FIX**
 - [修复] Latent-WAM公式：\mathbf→\boldsymbol，复杂行内公式→displaymath，保留所有原始内容和图片
 
-👥 **2 人** | 📝 **19 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **18 commits** | 📂 **0 files**
 
 ---
