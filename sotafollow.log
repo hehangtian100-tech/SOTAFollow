@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 210 条_
+  _...还有 211 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **223 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **224 commits** | 📂 **0 files**
 
 ---
 
@@ -176,11 +176,11 @@
 - [修复] Latent-WAM还原：恢复被删除的图片，保留原始公式
 - [修复] 全项目 \mathbb{R/S} → \mathbf{R/S} GitHub 兼容性
 - [修复] Latent-WAM公式：仅将$$转为\(\)，还原被破坏的LaTeX命令
-  _...还有 2 条_
+  _...还有 1 条_
 
 **📚 DOCS**
 - RL: 丰满 PPO 文档 GAE 内容，添加推导过程和流程图
 
-👥 **2 人** | 📝 **34 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **33 commits** | 📂 **0 files**
 
 ---
