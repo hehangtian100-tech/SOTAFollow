@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 232 条_
+  _...还有 233 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **245 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **246 commits** | 📂 **0 files**
 
 ---
 
@@ -146,13 +146,12 @@
 - 修正CLAUDE.md和XXPO报告：删除幻觉内容
 - 更新CLAUDE.md：新增3项规范
 - 优化 GMP 精读报告：proofreader 校对 + 章节规范化 + 图片URL修复
-  _...还有 1 条_
 
 **⚡ OPT**
 - [优化] 精读报告MathJax及格式修复
 - [优化] MathJax公式格式修复：上下标括号规范化
 - [优化] 精读报告格式修复：移除Figure解析标签、统一Figure编号
 
-👥 **1 人** | 📝 **12 commits** | 📂 **0 files**
+👥 **1 人** | 📝 **11 commits** | 📂 **0 files**
 
 ---
