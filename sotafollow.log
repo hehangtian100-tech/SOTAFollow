@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 221 条_
+  _...还有 222 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **234 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **235 commits** | 📂 **0 files**
 
 ---
 
@@ -136,7 +136,6 @@
 **🎯 RL**
 - [RL] XXPO系列算法精读报告：补全DAPO arXiv:2503.14476，GRPO待查证
 - [RL] 新增XXPO系列算法精读报告
-- [RL] 修复 FlowGRPO 公式：拆分过长公式提升可读性
 
 **🤖 VLA**
 - [VLA] 新增VISTA精读报告：世界模型生成视觉子目标
@@ -171,6 +170,6 @@
 - [修复] Latent-WAM：恢复5张图片，保留原始公式和LaTeX命令
 - [修复] Latent-WAM还原：恢复被删除的图片，保留原始公式
 
-👥 **2 人** | 📝 **23 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **22 commits** | 📂 **0 files**
 
 ---
