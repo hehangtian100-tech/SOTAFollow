@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 137 条_
+  _...还有 138 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **150 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **151 commits** | 📂 **0 files**
 
 ---
 
@@ -307,9 +307,6 @@
 - 更新README，补充LLM面试深度知识点文档链接
 - [面筋] 更新README目录，补充MoE_RL文档索引
 
-**🎓 INTERVIEW**
-- [面筋] MoE_RL_训推不一致：Routing Replay+GSPO解析
-
-👥 **2 人** | 📝 **9 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **8 commits** | 📂 **0 files**
 
 ---
