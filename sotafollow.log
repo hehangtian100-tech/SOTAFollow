@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 105 条_
+  _...还有 106 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **118 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **119 commits** | 📂 **0 files**
 
 ---
 
@@ -407,8 +407,7 @@
 - Use raw.githubusercontent.com URLs for cross-platform image display
 - Revert to local image paths for cross-platform compatibility
 - Embed DreamerAD images as base64 for GitHub and Zhihu compatibility
-- Switch DreamerAD images to jsDelivr CDN for Zhihu compatibility
 
-👥 **1 人** | 📝 **4 commits** | 📂 **0 files**
+👥 **1 人** | 📝 **3 commits** | 📂 **0 files**
 
 ---
