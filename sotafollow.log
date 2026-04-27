@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 250 条_
+  _...还有 251 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **263 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **264 commits** | 📂 **0 files**
 
 ---
 
@@ -118,9 +118,6 @@
 - [VLA] 新增Being-0精读报告(arXiv:2503.12533)：分层Agent框架，FM+Connector+技能库，84.4%任务完成率；含与Latent-WAM本质对比
 - [VLA] 新增DVGT-2精读报告：自动驾驶视觉几何Transformer
 
-**🎯 RL**
-- [RL] 完善XXPO系列算法精读报告：补充GMPO(arXiv:2507.20673)、GRPO准确引用、DAPO机构信息；check_latex_formula.py移入tools/
-
-👥 **2 人** | 📝 **8 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **7 commits** | 📂 **0 files**
 
 ---
