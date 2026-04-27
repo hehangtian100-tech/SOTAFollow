@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 208 条_
+  _...还有 209 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **221 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **222 commits** | 📂 **0 files**
 
 ---
 
@@ -164,7 +164,6 @@
 
 **🌍 WM**
 - [WorldModel] 补全 Latent-WAM 训练推理伪代码，符合标准格式
-- [WorldModel] Latent-WAM 精读报告（arXiv 2603.24581）
 
 **🔬 FM**
 - [FM] 新增MEM文件夹：Gated Memory Policy精读报告，详解时序融合模块
@@ -182,6 +181,6 @@
 **📚 DOCS**
 - RL: 丰满 PPO 文档 GAE 内容，添加推导过程和流程图
 
-👥 **2 人** | 📝 **36 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **35 commits** | 📂 **0 files**
 
 ---
