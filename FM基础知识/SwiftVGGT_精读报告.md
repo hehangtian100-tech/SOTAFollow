@@ -37,32 +37,32 @@ SwiftVGGT 是一个无需训练的稀疏 3D 大规模场景重建方法，通过
 ### 整体 Pipeline
 
 ```
-+------------------------------------------------------------------+
-|                      SwiftVGGT Pipeline                          |
-+------------------------------------------------------------------+
-|                                                                   |
-|  +-------------+    +-------------+    +-------------+            |
-|  |   Input    |    |  Chunk-by- |    |   Chunk    |            |
-|  |   Images   | -> |  chunk     | -> |  Alignment |            |
-|  |   + Ext    |    |  Processing |    |  (Sim(3)   |            |
-|  |   (GT/Est)|    |  + Feature  |    |   SVD)     |            |
-|  +-------------+    |  Extraction|    +------+------+            |
-|                      +------+------+           |                 |
-|                             |                  |                 |
-|                             v                  v                 |
-|                      +-------------+    +-------------+           |
-|                      |  Loop      |    |   Merge &  |           |
-|                      |  Closure    | -> |   Refine   |           |
-|                      |  (Feature   |    |            |           |
-|                      |  Similarity)|    |            |           |
-|                      +------+------+    +-------------+           |
-|                             |                                   |
-|                             v                                   |
-|                      +-------------+                             |
-|                      |   Dense 3D  |                            |
-|                      |  Point Cloud|                             |
-|                      +-------------+                             |
-+------------------------------------------------------------------+
+┌─────────────────────────────────────────────────────────────────┐
+│                      SwiftVGGT Pipeline                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐        │
+│  │   Input     │    │  Chunk-by-  │    │  Chunk     │        │
+│  │   Images    │ →  │  chunk      │ →  │  Alignment  │        │
+│  │   + Ext     │    │  Processing │    │  (Sim(3)   │        │
+│  │   (GT/Est)  │    │  + Feature  │    │   SVD)     │        │
+│  └─────────────┘    │  Extraction │    └──────┬──────┘        │
+│                      └──────┬──────┘           │               │
+│                             │                  │               │
+│                             ▼                  ▼               │
+│                      ┌─────────────┐    ┌─────────────┐        │
+│                      │  Loop       │    │   Merge &   │        │
+│                      │  Closure     │ →  │   Refine    │        │
+│                      │  (Feature    │    │             │        │
+│                      │   Similarity)│    │             │        │
+│                      └──────┬──────┘    └─────────────┘        │
+│                             │                                   │
+│                             ▼                                   │
+│                      ┌─────────────┐                           │
+│                      │  Dense 3D   │                           │
+│                      │  Point Cloud│                           │
+│                      └─────────────┘                           │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ### 核心方法
@@ -71,11 +71,9 @@ SwiftVGGT 是一个无需训练的稀疏 3D 大规模场景重建方法，通过
 
 将输入图像序列按固定长度划分为多个 chunks：
 
-```
-C_i = { I(i*L), I(i*L+1), ..., I((i+1)*L - 1) }
-```
+$$C_i = \{I_{i \cdot L}, I_{i \cdot L + 1}, \ldots, I_{(i+1) \cdot L - 1}\}$$
 
-其中 L 是 chunk 长度。
+其中 $L$ 是 chunk 长度。
 
 每个 chunk 独立进行：
 1. **特征提取**：使用预训练 ViT 提取图像特征
@@ -87,14 +85,10 @@ C_i = { I(i*L), I(i*L+1), ..., I((i+1)*L - 1) }
 传统方法依赖外部 VPR 模型检测回环：
 
 **传统 Pipeline**：
-```
-Loop Detection --[VPR Model]--> Image Retrieval --[Match]--> Pose Graph
-```
+$$\text{Loop Detection} \xrightarrow{\text{VPR Model}} \text{Image Retrieval} \xrightarrow{\text{Match}} \text{Pose Graph}$$
 
 **SwiftVGGT Pipeline**：
-```
-Feature Similarity --[Intra-chunk]--> Loop Pairs --[Match]--> Pose Graph
-```
+$$\text{Feature Similarity} \xrightarrow{\text{Intra-chunk}} \text{Loop Pairs} \xrightarrow{\text{Match}} \text{Pose Graph}$$
 
 关键洞察：当两个 chunk 存在重叠区域时，其特征会在相同位置产生高相似性响应。
 
@@ -102,42 +96,24 @@ Feature Similarity --[Intra-chunk]--> Loop Pairs --[Match]--> Pose Graph
 
 传统方法使用 IRLS（Iteratively Reweighted Least Squares）进行块对齐：
 
-```
-min  sum( rho( ||s * R * p_i + t - q_i|| ) )
- R,t,s    i
-```
+$$\min_{R, t, s} \sum_{i} \rho(\|s \cdot R \cdot p_i + t - q_i\|)$$
 
-其中 rho 是 robust loss function。
+其中 $\rho$ 是 robust loss function。
 
 **SwiftVGGT 简化方案**：
 
-将 SE(3) 升级到 Sim(3)（相似变换群），包含尺度因子 s：
+将 SE(3) 升级到 Sim(3)（相似变换群），包含尺度因子 $s$：
 
-```
-min ||s * R * P + t - Q||_F^2
-R,t,s
-```
+$$\min_{R, t, s} \|s \cdot R \cdot P + t - Q\|_F^2$$
 
 解析解通过单步 SVD 获得：
 
-1. **中心化点云**：
-   - p_bar = (1/n) * sum(p_i)
-   - q_bar = (1/n) * sum(q_i)
-
-2. **协方差矩阵**：
-   - H = (P - P_bar)^T * (Q - Q_bar)
-
-3. **SVD 分解**：
-   - H = U * Sigma * V^T
-
-4. **最优旋转**：
-   - R* = V * U^T
-
-5. **尺度因子**：
-   - s* = tr(Sigma) / tr((P - P_bar)^T * (P - P_bar))
-
-6. **平移向量**：
-   - t* = q_bar - s* * R* * p_bar
+1. 中心化点云：$\bar{p} = \frac{1}{n}\sum p_i$, $\bar{q} = \frac{1}{n}\sum q_i$
+2. 协方差矩阵：$H = (P - \bar{P})^T (Q - \bar{Q})$
+3. SVD 分解：$H = U \Sigma V^T$
+4. 最优旋转：$R^* = V U^T$
+5. 尺度因子：$s^* = \frac{tr(\Sigma)}{tr(P - \bar{P})^T(P - \bar{P})}$
+6. 平移向量：$t^* = \bar{q} - s^* \cdot R^* \cdot \bar{p}$
 
 #### 4. 为什么不训练？
 
@@ -151,8 +127,8 @@ R,t,s
 
 ### 主实验结果
 
-| Dataset | Method | Accuracy (cm) | Completeness (%) | Time (s) |
-|---------|--------|---------------|-----------------|----------|
+| Dataset | Method | Accuracy (cm) ↓ | Completeness (%) ↑ | Time (s) ↓ |
+|---------|--------|-----------------|-------------------|-------------|
 | ScanNet | VGGT | 2.34 | 91.2 | 156 |
 | ScanNet | SwiftVGGT | 2.41 | 90.8 | **52** |
 | 7-Scenes | VGGT | 1.89 | 87.3 | 98 |
@@ -188,7 +164,7 @@ R,t,s
 2. **特征相似性即回环信号**：同场景图像的特征图在重叠区域自然相似
 3. **Sim(3) 比 SE(3) 更适合尺度恢复**：加入尺度因子使点云配准更鲁棒
 4. **SVD 替代 IRLS**：解析解不仅快而且数值更稳定
-5. **训练-free 不等于无学习**：特征提取网络仍在 ImageNet 上预训练
+5. **训练-free ≠ 无学习**：特征提取网络仍在 ImageNet 上预训练
 6. **Chunk 划分是效率关键**：控制内存使用，支持任意长度序列
 7. **精度损失可接受**：1-3% 精度损失换取 3 倍加速
 8. **无需调参**：所有超参数（chunk 大小、采样率）均有理论依据
@@ -201,9 +177,7 @@ R,t,s
 
 详细推导了 Sim(3) SVD 的解析解，包括尺度因子的闭式解：
 
-```
-s* = tr(Sigma) / tr(P^T * P - n * ||p_bar||^2)
-```
+$$s^* = \frac{tr(\Sigma)}{tr(P^T P) - n \|\bar{p}\|^2}$$
 
 ### B. 特征匹配
 
@@ -211,7 +185,7 @@ s* = tr(Sigma) / tr(P^T * P - n * ||p_bar||^2)
 
 ### C. 鲁棒性分析
 
-对噪声 outlier 使用 Huber loss，delta = 1.0cm。
+对噪声outlier使用 Huber loss，$\delta = 1.0cm$。
 
 ---
 
