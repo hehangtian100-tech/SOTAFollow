@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 247 条_
+  _...还有 248 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **260 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **261 commits** | 📂 **0 files**
 
 ---
 
@@ -121,9 +121,6 @@
 **🎯 RL**
 - [RL] 完善XXPO系列算法精读报告：补充GMPO(arXiv:2507.20673)、GRPO准确引用、DAPO机构信息；check_latex_formula.py移入tools/
 
-**📦 ADD**
-- [整理] 批量整理：学习笔记重构 + 根目录清理
-
-👥 **3 人** | 📝 **11 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **10 commits** | 📂 **0 files**
 
 ---
