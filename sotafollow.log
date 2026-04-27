@@ -2,7 +2,7 @@
 
 > 🤖 自动生成 | [查看完整日志](./sotafollow.log)
 
-**快捷导航**: [📅 04-27](#📅-04-27) | [📅 04-26](#📅-04-26) | [📅 04-25](#📅-04-25) | [📅 04-24](#📅-04-24) | [📅 04-23](#📅-04-23)
+**快捷导航**: [📅 04-27](#📅-04-27) | [📅 04-26](#📅-04-26) | [📅 04-25](#📅-04-25) | [📅 04-24](#📅-04-24)
 
 ---
 
@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 257 条_
+  _...还有 258 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **270 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **271 commits** | 📂 **0 files**
 
 ---
 
@@ -98,14 +98,5 @@
 - [RL] 新增Near-Future Policy Optimization精读报告：𝒮=Q/V框架、近未来checkpoint辅助轨迹、AutoNPO自适应干预
 
 👥 **3 人** | 📝 **5 commits** | 📂 **0 files**
-
----
-
-## 📅 2026-04-23 (04-23)
-
-**📚 DOCS**
-- [Docs] README索引添加Epona精读报告
-
-👥 **1 人** | 📝 **1 commits** | 📂 **0 files**
 
 ---
