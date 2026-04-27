@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 223 条_
+  _...还有 224 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **236 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **237 commits** | 📂 **0 files**
 
 ---
 
@@ -167,8 +167,7 @@
 
 **🐛 FIX**
 - [修复] Latent-WAM公式：\mathbf→\boldsymbol，复杂行内公式→displaymath，保留所有原始内容和图片
-- [修复] Latent-WAM：恢复5张图片，保留原始公式和LaTeX命令
 
-👥 **2 人** | 📝 **21 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **20 commits** | 📂 **0 files**
 
 ---
