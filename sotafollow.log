@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 226 条_
+  _...还有 227 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **239 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **240 commits** | 📂 **0 files**
 
 ---
 
@@ -164,9 +164,6 @@
 **🔬 FM**
 - [FM] 新增MEM文件夹：Gated Memory Policy精读报告，详解时序融合模块
 
-**🐛 FIX**
-- [修复] Latent-WAM公式：\mathbf→\boldsymbol，复杂行内公式→displaymath，保留所有原始内容和图片
-
-👥 **2 人** | 📝 **18 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **17 commits** | 📂 **0 files**
 
 ---
