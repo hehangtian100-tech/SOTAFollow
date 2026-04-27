@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 228 条_
+  _...还有 229 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **241 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **242 commits** | 📂 **0 files**
 
 ---
 
@@ -153,7 +153,6 @@
 - [优化] MathJax公式格式修复：上下标括号规范化
 - [优化] 精读报告格式修复：移除Figure解析标签、统一Figure编号
 - [优化] GMP精读报告：MathJax公式（\(\)行内+83291块级），插入3张项目主页截图：任务概览、方法架构、注意力可视化
-- [优化] GMP精读报告：补全伪代码章节，补充Figure描述，对齐CLAUDE.md格式要求
 
 **📦 ADD**
 - [新增] mRoPE详解/Epona精读/RAD-2学习笔记/Fast-WAM学习笔记
@@ -161,6 +160,6 @@
 **🌍 WM**
 - [WorldModel] 补全 Latent-WAM 训练推理伪代码，符合标准格式
 
-👥 **2 人** | 📝 **16 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **15 commits** | 📂 **0 files**
 
 ---
