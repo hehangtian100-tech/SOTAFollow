@@ -8,16 +8,23 @@
 
 ## 📅 2026-04-27 (04-27) 🌟
 
-**🔬 FM**
-- [FM] MEM文件夹：去重自驾时序融合章节 + 调整章节顺序
-
 **⚙️ CONFIG**
+- [Config] test auto-push flow
 - [Config] sotafollow.log 纳入Git跟踪
 
+**🔬 FM**
+- [FM] 新增GuideFlow精读报告：约束引导流匹配，端到端可控多模态规划
+- [FM] MEM文件夹：去重自驾时序融合章节 + 调整章节顺序
+
 **🌳 COMMIT**
+- [手撕] DeepSeek-V4模型架构：补全5张配图并规范图注格式
+- [手撕] 新增DeepSeek-V4模型架构拆解系列第1篇
 - 📝 docs: 优化 README 风格 - emoji、快捷索引、子文件夹排版
 
-👥 **1 人** | 📝 **3 commits** | 📂 **0 files**
+**🎓 INTERVIEW**
+- [面筋] 20260427 面试题更新
+
+👥 **3 人** | 📝 **11 commits** | 📂 **0 files**
 
 ---
 
@@ -43,17 +50,32 @@
 **⚙️ CONFIG**
 - [Config] 添加 sotafollow.log 到 .gitignore
 
-👥 **1 人** | 📝 **12 commits** | 📂 **0 files**
+**🌳 COMMIT**
+- 'ema+restart'
+- 'ema+restart'
+
+**🎓 INTERVIEW**
+- [面筋] 20260426 面试题更新
+
+👥 **3 人** | 📝 **15 commits** | 📂 **0 files**
 
 ---
 
 ## 📅 2026-04-25 (04-25)
 
+**🤖 VLA**
+- [VLA] 新增 MemoryVLA 论文精读报告
+
+**🎓 INTERVIEW**
+- [面筋] 20260425 面试题更新（含正确LaTeX公式）：RL/VLA/WM/LLM四领域均衡
+- [面筋] 20260425 面试题更新
+- [面筋] 20260425 面试题更新：RL/VLA/WM/LLM四领域均衡
+
 **🌍 WM**
 - [WorldModel] 新增：世界模型EP04_Motus石麻笔记（含15张配图）
 - [WorldModel] 新增：从表征学习角度看 Being-H0.7、Fast-WAM 与 π0.7
 
-👥 **3 人** | 📝 **5 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **9 commits** | 📂 **0 files**
 
 ---
 
