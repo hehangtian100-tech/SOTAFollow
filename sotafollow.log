@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 215 条_
+  _...还有 216 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **228 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **229 commits** | 📂 **0 files**
 
 ---
 
@@ -148,7 +148,7 @@
 - 修正CLAUDE.md和XXPO报告：删除幻觉内容
 - 更新CLAUDE.md：新增3项规范
 - 优化 GMP 精读报告：proofreader 校对 + 章节规范化 + 图片URL修复
-  _...还有 3 条_
+  _...还有 2 条_
 
 **⚡ OPT**
 - [优化] 精读报告MathJax及格式修复
@@ -178,6 +178,6 @@
 **📚 DOCS**
 - RL: 丰满 PPO 文档 GAE 内容，添加推导过程和流程图
 
-👥 **2 人** | 📝 **29 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **28 commits** | 📂 **0 files**
 
 ---
