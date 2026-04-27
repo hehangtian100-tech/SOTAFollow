@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 216 条_
+  _...还有 217 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **229 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **230 commits** | 📂 **0 files**
 
 ---
 
@@ -140,7 +140,6 @@
 
 **🤖 VLA**
 - [VLA] 新增VISTA精读报告：世界模型生成视觉子目标
-- [VLA] 修复 MINT DCT 公式语法：cos 后括号从 [] 改为 ()
 
 **🌳 COMMIT**
 - 更新CLAUDE.md：新增Andrej Karpathy行为准则
@@ -178,6 +177,6 @@
 **📚 DOCS**
 - RL: 丰满 PPO 文档 GAE 内容，添加推导过程和流程图
 
-👥 **2 人** | 📝 **28 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **27 commits** | 📂 **0 files**
 
 ---
