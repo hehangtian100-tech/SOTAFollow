@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 140 条_
+  _...还有 141 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **153 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **154 commits** | 📂 **0 files**
 
 ---
 
@@ -300,11 +300,10 @@
 - Fix image references: replace local assets with arXiv URLs
 - Fix Uni-World VLA filename typo (space → underscore)
 - Add TiTok to FM基础知识 section
-- 更新claude.md
 
 **📚 DOCS**
 - 更新README，补充LLM面试深度知识点文档链接
 
-👥 **2 人** | 📝 **6 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **5 commits** | 📂 **0 files**
 
 ---
