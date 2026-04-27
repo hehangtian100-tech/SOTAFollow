@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 238 条_
+  _...还有 239 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **251 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **252 commits** | 📂 **0 files**
 
 ---
 
@@ -135,7 +135,6 @@
 
 **🎯 RL**
 - [RL] XXPO系列算法精读报告：补全DAPO arXiv:2503.14476，GRPO待查证
-- [RL] 新增XXPO系列算法精读报告
 
 **🤖 VLA**
 - [VLA] 新增VISTA精读报告：世界模型生成视觉子目标
@@ -145,6 +144,6 @@
 - 批量添加Motivation章节：FM基础知识 + WorldModel部分
 - 修正CLAUDE.md和XXPO报告：删除幻觉内容
 
-👥 **1 人** | 📝 **6 commits** | 📂 **0 files**
+👥 **1 人** | 📝 **5 commits** | 📂 **0 files**
 
 ---
