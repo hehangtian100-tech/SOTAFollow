@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 212 条_
+  _...还有 213 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **225 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **226 commits** | 📂 **0 files**
 
 ---
 
@@ -137,7 +137,6 @@
 - [RL] XXPO系列算法精读报告：补全DAPO arXiv:2503.14476，GRPO待查证
 - [RL] 新增XXPO系列算法精读报告
 - [RL] 修复 FlowGRPO 公式：拆分过长公式提升可读性
-- [RL] 新增 PPO 精读报告
 
 **🤖 VLA**
 - [VLA] 新增VISTA精读报告：世界模型生成视觉子目标
@@ -181,6 +180,6 @@
 **📚 DOCS**
 - RL: 丰满 PPO 文档 GAE 内容，添加推导过程和流程图
 
-👥 **2 人** | 📝 **32 commits** | 📂 **0 files**
+👥 **2 人** | 📝 **31 commits** | 📂 **0 files**
 
 ---
