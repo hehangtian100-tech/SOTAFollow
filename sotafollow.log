@@ -14,7 +14,7 @@
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
 - 🔄 Auto-update sotafollow.log
-  _...还有 258 条_
+  _...还有 259 条_
 
 **⚙️ CONFIG**
 - [Config] test auto-push flow
@@ -27,7 +27,7 @@
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **271 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **272 commits** | 📂 **0 files**
 
 ---
 
@@ -86,7 +86,6 @@
 
 **🌳 COMMIT**
 - 'lingbot-va'
-- [FM基础知识] 更新非arXiv论文插图规范; 同步Being-H0.7架构图和潜在查询设计
 
 **🤖 VLA**
 - [VLA] 新增 VLA-JEPA 论文精读报告
@@ -97,6 +96,6 @@
 **🎯 RL**
 - [RL] 新增Near-Future Policy Optimization精读报告：𝒮=Q/V框架、近未来checkpoint辅助轨迹、AutoNPO自适应干预
 
-👥 **3 人** | 📝 **5 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **4 commits** | 📂 **0 files**
 
 ---
