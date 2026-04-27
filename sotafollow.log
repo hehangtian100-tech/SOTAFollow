@@ -8,6 +8,12 @@
 
 ## 📅 2026-04-27 (04-27) 🌟
 
+**🌳 COMMIT**
+- 🔄 Auto-update sotafollow.log
+- [手撕] DeepSeek-V4模型架构：补全5张配图并规范图注格式
+- [手撕] 新增DeepSeek-V4模型架构拆解系列第1篇
+- 📝 docs: 优化 README 风格 - emoji、快捷索引、子文件夹排版
+
 **⚙️ CONFIG**
 - [Config] test auto-push flow
 - [Config] sotafollow.log 纳入Git跟踪
@@ -16,15 +22,10 @@
 - [FM] 新增GuideFlow精读报告：约束引导流匹配，端到端可控多模态规划
 - [FM] MEM文件夹：去重自驾时序融合章节 + 调整章节顺序
 
-**🌳 COMMIT**
-- [手撕] DeepSeek-V4模型架构：补全5张配图并规范图注格式
-- [手撕] 新增DeepSeek-V4模型架构拆解系列第1篇
-- 📝 docs: 优化 README 风格 - emoji、快捷索引、子文件夹排版
-
 **🎓 INTERVIEW**
 - [面筋] 20260427 面试题更新
 
-👥 **3 人** | 📝 **11 commits** | 📂 **0 files**
+👥 **3 人** | 📝 **12 commits** | 📂 **0 files**
 
 ---
 
