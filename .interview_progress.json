@@ -111,6 +111,34 @@
     "FM基础知识/WorldModel训练Loss设计详解.md": {
       "interview_date": "20260428",
       "processed_at": "2026-04-28T08:01:00.000008"
+    },
+    "VLA/DVGT-2_精读报告.md": {
+      "interview_date": "20260429",
+      "processed_at": "2026-04-29T08:01:00.000000"
+    },
+    "WorldModel/从表征学习角度看_Being-H0.7_Fast-WAM与π0.7.md": {
+      "interview_date": "20260429",
+      "processed_at": "2026-04-29T08:01:00.000000"
+    },
+    "FM基础知识/LoRA-论文精读-arXiv2106.09685.md": {
+      "interview_date": "20260429",
+      "processed_at": "2026-04-29T08:01:00.000000"
+    },
+    "FM基础知识/FlashAttention2-论文精读-arXiv2307.08691.md": {
+      "interview_date": "20260429",
+      "processed_at": "2026-04-29T08:01:00.000000"
+    },
+    "FM基础知识/Kimi_Attention_Residuals_精读报告.md": {
+      "interview_date": "20260429",
+      "processed_at": "2026-04-29T08:01:00.000000"
+    },
+    "FM基础知识/PETR-论文精读.md": {
+      "interview_date": "20260429",
+      "processed_at": "2026-04-29T08:01:00.000000"
+    },
+    "FM基础知识/ZeRO-论文精读-sc20.md": {
+      "interview_date": "20260429",
+      "processed_at": "2026-04-29T08:01:00.000000"
     }
   },
   "last_run": "20260428"
