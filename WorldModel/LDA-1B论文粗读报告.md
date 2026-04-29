@@ -1392,3 +1392,595 @@ Final Output:
 4. **Qwen2.5-VL**: [Qwen2.5-VL Technical Report](https://qwenlm.github.io/blog/qwen2.5-vl/)
 5. **LeRobot**: [LeRobot Dataset Format](https://huggingface.co/docs/lerobot/v0.40.0/en/concept_datasets)
 
+## 📋 4个任务的完整定义
+
+```python
+# 文件: MMDiT_ActionHeader_rope_embedding.py 第32行
+TRAINING_TASKS = ["policy", "forward_dynamics", "inverse_dynamics", "video_gen"]
+```
+
+| 任务名称                          | 数学形式 | 物理含义                           | 输入→输出                    |
+| --------------------------------- | -------- | ---------------------------------- | ---------------------------- |
+| **policy (策略)**                 | o → a    | 知道"现在该做什么"                 | 当前观测 → 动作序列          |
+| **forward_dynamics (前向动力学)** | o+a → o' | 知道"做了这个动作会发生什么"       | 当前观测+动作 → 未来观测     |
+| **inverse_dynamics (逆动力学)**   | o+o' → a | 知道"要达到那个状态，该做什么动作" | 当前观测+未来观测 → 动作序列 |
+| **video_gen (视觉规划)**          | o → o'   | 知道"世界接下来会怎么变化"         | 当前观测 → 未来观测          |
+
+---
+
+## 🔧 机制一：数据层的任务分配
+
+### 核心组件：DistributedTaskBatchSampler
+
+**文件位置**: [task_batch_sampler.py](lda/dataloader/task_batch_sampler.py)
+
+```python
+class DistributedTaskBatchSampler(torch.utils.data.Sampler):
+    """
+    Multi-task batch sampler with:
+    - hard constraint: 每个batch至少包含每个任务1个样本
+    - soft constraint: 剩余slot按task_weights采样
+    """
+    
+    def __iter__(self) -> Iterator[List[Tuple[int, str]]]:
+        for _ in range(len(self)):
+            batch: List[Tuple[int, str]] = []
+            
+            # === Hard Constraint: 保证每个任务至少有1个样本 ===
+            for task in self.tasks:  # ["policy", "forward_dynamics", "inverse_dynamics", "video_gen"]
+                batch.append((self._next_index(task), task))  # 返回 (index, task_name)
+            
+            # === Soft Constraint: 剩余位置按权重随机分配 ===
+            while len(batch) < self.batch_size:
+                task = self._sample_task_by_weight()  # 根据task_weights随机选
+                batch.append((self._next_index(task), task))
+            
+            self.batch_rng.shuffle(batch)  # 打乱顺序
+            yield batch
+```
+
+### 配置文件中的权重设置
+
+**文件**: [LDA_pretrain.yaml](lda/config/training/LDA_pretrain.yaml#L84)
+
+```yaml
+training_task_weights: [1.0, 1.0, 1.0, 1.0]  # [policy, forward_dynamics, inverse_dynamics, video_gen]
+```
+
+**含义**：
+
+- 默认等权重（各25%）
+- 可以调整比例，如 `[2.0, 1.0, 1.0, 0.5]` 表示策略任务占40%
+
+### 数据流示例
+
+```
+Batch Size = 8, 4个任务
+
+Step 1: Hard Constraint (必须)
+┌─────────────────────────────────────────────┐
+│ (index=100, task="policy")                  │
+│ (index=200, task="forward_dynamics")        │
+│ (index=300, task="inverse_dynamics")        │
+│ (index=400, task="video_gen")               │
+└─────────────────────────────────────────────┘
+
+Step 2: Soft Constraint (按权重填充剩余4个slot)
+┌─────────────────────────────────────────────┐
+│ (index=150, task="policy")       ← 权重大   │
+│ (index=250, task="inverse_dynamics")         │
+│ (index=350, task="forward_dynamics")         │
+│ (index=450, task="video_gen")                │
+└─────────────────────────────────────────────┘
+
+Step 3: Shuffle (打乱顺序)
+Batch = [
+    (250, "inverse_dynamics"),
+    (100, "policy"),
+    (450, "video_gen"),
+    (300, "inverse_dynamics"),  ← 注意：可以有重复！
+    (200, "forward_dynamics"),
+    (150, "policy"),
+    (400, "video_gen"),
+    (350, "forward_dynamics")
+]
+
+Step 4: Dataset.__getitem__() 接收 (index, task) 元组
+返回 dict 中包含 assigned_task 字段
+```
+
+---
+
+## 🔧 机制二：模型层的任务区分
+
+### 核心：Task Embedding (4个可学习向量)
+
+**文件位置**: [MMDiT_ActionHeader_rope_embedding.py:582-585](lda/model/modules/action_model/MMDiT_ActionHeader_rope_embedding.py#L582-L585)
+
+```python
+class MMDiTActionHeader(nn.Module):
+    def __init__(self, config):
+        # ... 其他初始化 ...
+        
+        # 🔑 关键：4个独立的Task Embedding向量
+        self.policy_embedding = nn.Parameter(0.02 * torch.randn(self.inner_dim))      # 策略
+        self.fd_embedding = nn.Parameter(0.02 * torch.randn(self.inner_dim))           # 前向动力学
+        self.vg_embedding = nn.Parameter(0.02 * torch.randn(self.inner_dim))           # 视频生成
+        self.id_embedding = nn.Parameter(0.02 * torch.randn(self.inner_dim))           # 逆动力学
+        
+        # Policy任务专用的learnable tokens（替代真实next_obs）
+        self.next_obs_learnable_tokens = nn.Parameter(0.02 * torch.randn(num_chans))
+```
+
+### Forward函数中的任务路由逻辑
+
+**文件位置**: [MMDiT_ActionHeader_rope_embedding.py:665-824](lda/model/modules/action_model/MMDiT_ActionHeader_rope_embedding.py#L665-L824)
+
+#### Step 1: 根据 assigned_tasks 分组索引
+
+```python
+def forward(self, vl_embs, actions, ..., assigned_tasks):
+    # 初始化4个列表
+    policy_indices = []           # 存储policy任务的样本索引
+    forward_dynamics_indices = [] # 存储FD任务的样本索引
+    inverse_dynamics_indices = [] # 存储ID任务的样本索引
+    video_gen_indices = []        # 存储VG任务的样本索引
+    
+    # 遍历batch中每个样本
+    for i in range(B):
+        task = assigned_tasks[i]  # 从sampler传入的任务标签
+        
+        if task == "policy":
+            policy_indices.append(i)
+        elif task == "forward_dynamics":
+            forward_dynamics_indices.append(i)
+        elif task == "inverse_dynamics":
+            inverse_dynamics_indices.append(i)
+        elif task == "video_gen":
+            video_gen_indices.append(i)
+```
+
+**示例输出**：
+
+```python
+# 假设B=8，assigned_tasks = ["id", "policy", "vg", "id", "fd", "policy", "vg", "fd"]
+
+policy_indices           = [1, 5]          # 2个策略样本
+forward_dynamics_indices = [4, 7]          # 2个前向动力学样本
+inverse_dynamics_indices = [0, 3]          # 2个逆动力学样本
+video_gen_indices        = [2, 6]          # 2个视频生成样本
+```
+
+#### Step 2: 为每组分配对应的Task Embedding
+
+```python
+    # 为每组的样本扩展对应的embedding
+    policy_embedding = self.policy_embedding.unsqueeze(0).expand(len(policy_indices), -1)           # [2, D]
+    fd_embedding = self.fd_embedding.unsqueeze(0).expand(len(forward_dynamics_indices), -1)        # [2, D]
+    vg_embedding = self.vg_embedding.unsqueeze(0).expand(len(video_gen_indices), -1)              # [2, D]
+    id_embedding = self.id_embedding.unsqueeze(0).expand(len(inverse_dynamics_indices), -1)       # [2, D]
+```
+
+#### Step 3: 构建输入差异（关键！）
+
+这是**最核心的部分**——不同任务使用**不同的输入组合**：
+
+```python
+    # ════════════════════════════════════════════════
+    # 任务分组：预测动作 vs 预测观测
+    # ════════════════════════════════════════════════
+    pred_action_task_indices = policy_indices + inverse_dynamics_indices     # [0,3,1,5]
+    pred_next_obs_task_indices = forward_dynamics_indices + video_gen_indices # [4,7,2,6]
+    
+    # ──── Policy & Inverse Dynamics: 需要预测动作 ────
+    # 提取对应的actions
+    policy_action = actions[policy_indices]           # [2, T, action_dim]
+    inverse_action = actions[inverse_dynamics_indices] # [2, T, action_dim]
+    to_noise_action = torch.cat((policy_action, inverse_action), dim=0)  # [4, T, action_dim]
+    
+    # 注入噪声（Flow Matching标准操作）
+    act_t_sample = self.sample_time(to_noise_action.shape[0], ...)
+    action_noise = torch.randn_like(to_noise_action)
+    noisy_action = (1 - act_t_sample) * action_noise + act_t_sample * to_noise_action
+    
+    # 编码noisy actions
+    noisy_act_feat = self.action_encoder(noisy_action, act_t_discretized, embodiment_id[pred_action_task_indices])
+    
+    # ⚠️ Policy vs Inverse Dynamics的关键区别：
+    # - Policy: 使用 learnable next_obs tokens（占位符）
+    policy_obs_feat = self.next_obs_learnable_tokens.expand(len(policy_indices), num_obs_tokens, -1)
+    
+    # - Inverse Dynamics: 使用真实的GT next_obs
+    inv_obs_feat = next_obs[inverse_dynamics_indices]  # 从future_imgs编码得到
+    
+    # ──── Forward Dynamics & Video Gen: 需要预测观测 ────
+    forward_obs = next_obs[forward_dynamics_indices]    # 真实GT next_obs
+    video_gen_obs = next_obs[video_gen_indices]         # 真实GT next_obs
+    to_noise_next_obs = torch.cat((forward_obs, video_gen_obs), dim=0)
+    
+    # 注入噪声到next_obs
+    obs_t_sample = self.sample_time(...)
+    obs_noise = torch.randn_like(to_noise_next_obs)
+    noisy_obs = (1 - obs_t) * obs_noise + obs_t * to_noise_next_obs
+    
+    # ⚠️ FD vs Video Gen的关键区别：
+    # - FD: 使用真实的GT actions（clean，不加噪声）
+    t_clean = torch.ones(len(forward_dynamics_indices), ...)
+    forward_act_feat = self.action_encoder(actions[forward_dynamics_indices], t_clean, ...)  # Clean!
+    
+    # - Video Gen: 使用 learnable action tokens（占位符）
+    video_gen_act_feat = self.action_learnable_tokens.weight.expand(len(video_gen_indices), -1, -1)
+```
+
+#### Step 4: 拼接所有输入送入DiT
+
+```python
+    # 按固定顺序拼接（重要！）
+    action_features = torch.cat((
+        noisy_act_feat,           # [4, T_a, D]  ← Policy + ID的noisy actions
+        forward_act_feat,         # [2, T_a, D]  ← FD的clean actions
+        video_gen_act_feat        # [2, T_a, D]  ← VG的learnable actions
+    ), dim=0)                     # 总计 [8, T_a, D]
+    
+    noisy_next_obs = torch.cat((
+        policy_obs_feat,          # [2, N_obs, D]  ← learnable tokens
+        inv_obs_feat,             # [2, N_obs, D]  ← GT next_obs (ID用)
+        noisy_obs                 # [4, N_obs, D]  ← Noisy next_obs (FD+VG用)
+    ), dim=0)                     # 总计 [8, N_obs, D]
+    
+    # Task Embedding也按相同顺序拼接
+    task_embedding = torch.cat((
+        policy_embedding,         # [2, D]
+        id_embedding,             # [2, D]
+        fd_embedding,             # [2, D]
+        vg_embedding              # [2, D]
+    ), dim=0)                     # 总计 [8, D]
+    
+    # 送入DiT Transformer
+    image_tokens, action_tokens = self.model(
+        image_tokens=obs_tokens,
+        action_tokens=action_features,
+        text_tokens=vl_embs,
+        time_cond=diffusion_t,
+        task_embedding=task_embedding,  # 🔑 告诉DiT当前是什么任务
+    )
+```
+
+#### Step 5: 分别计算Loss
+
+```python
+    # 解码action tokens
+    pred_actions = self.action_decoder(action_tokens, embodiment_id)
+    pred_actions = pred_actions[:, -actions.shape[1]:]  # 取最后T个token
+    
+    total_loss = 0.0
+    
+    # ═══ Policy Loss ═══
+    policy_pred = pred_actions[:len(policy_indices)]  # [2, T, action_dim]
+    policy_loss = MSE(policy_pred, action_velocity[:len(policy_indices)]) * mask
+    total_loss += policy_loss
+    
+    # ═══ Inverse Dynamics Loss ═══
+    if not self.only_policy:
+        inverse_pred = pred_actions[len(policy_indices):len(pred_action_task_indices)]
+        inverse_loss = MSE(inverse_pred, action_velocity[len(policy_indices):]) * mask
+        total_loss += inverse_loss  # 通常权重为0.5
+    
+    # ═══ Forward Dynamics / Video Gen Loss ═══
+    if not self.only_policy and not self.only_wo_video_gen:
+        pred_next_obs = self.obs_output_projector(image_tokens)  # 从image_tokens解码
+        obs_loss = MSE(pred_next_obs, obs_velocity)
+        total_loss += obs_loss  # 通常权重为0.1
+    
+    return {"loss": total_loss, "action_loss": policy_loss, "dynamics_loss": obs_loss}
+```
+
+---
+
+## 🎯 四任务完整对比表
+
+| 维度               | Policy             | Forward Dynamics         | Inverse Dynamics     | Video Gen                |
+| ------------------ | ------------------ | ------------------------ | -------------------- | ------------------------ |
+| **数学目标**       | o → a              | o+a → o'                 | o+o' → a             | o → o'                   |
+| **输入Actions**    | ❌ 加噪 (Noisy)     | ✅ 干净 (Clean GT)        | ❌ 加噪 (Noisy)       | ❌ Learnable Tokens       |
+| **输入Next Obs**   | ❌ Learnable Tokens | ❌ 加噪 (Noisy)           | ✅ 干净 (GT Next Obs) | ❌ 加噪 (Noisy)           |
+| **输出解码器**     | Action Decoder     | **Obs Output Projector** | Action Decoder       | **Obs Output Projector** |
+| **Loss目标**       | Action Velocity    | Obs Velocity             | Action Velocity      | Obs Velocity             |
+| **Task Embedding** | `policy_embedding` | `fd_embedding`           | `id_embedding`       | `vg_embedding`           |
+| **物理意义**       | "做什么？"         | "会怎样？"               | "怎么做？"           | "未来什么样？"           |
+
+---
+
+## 🚀 推理时的任务选择
+
+### 推理方法1：Policy推理（预测动作）
+
+**文件位置**: [MMDiT_ActionHeader_rope_embedding.py:920-1042](lda/model/modules/action_model/MMDiT_ActionHeader_rope_embedding.py#L920-L1042)
+
+```python
+@torch.no_grad()
+def predict_action(self, vl_embs, state, history_actions, curr_imgs, embodiment_id, attention_mask):
+    """
+    推理时只做Policy任务！
+    """
+    B = vl_embs.shape[0]
+    
+    # 1️⃣ 编码当前观测
+    curr_obs = self.encode_curr_obs(curr_imgs)
+    
+    # 2️⃣ 初始化纯噪声动作
+    actions = torch.randn(B, action_horizon, action_dim)
+    
+    # 3️⃣ 🔑 关键：强制使用Policy Task Embedding
+    task_embedding = self.policy_embedding.unsqueeze(0).expand(B, -1)  # 只有policy！
+    
+    # 4️⃣ Denoising循环
+    for step in range(num_inference_steps):
+        # 编码当前noisy actions
+        action_features = self.action_encoder(actions, timesteps, embodiment_id)
+        
+        # 使用learnable next_obs tokens（和训练时一致）
+        noisy_next_obs = self.next_obs_learnable_tokens.expand(B, num_obs_tokens, -1)
+        
+        # 送入DiT
+        _, action_tokens = self.model(
+            image_tokens=obs_tokens,
+            action_tokens=action_features,
+            text_tokens=vl_embs,
+            task_embedding=task_embedding,  # 🔑 Policy embedding
+        )
+        
+        # 解码得到velocity
+        pred_velocity = self.action_decoder(action_tokens, embodiment_id)
+        
+        # Euler积分去噪
+        actions = actions + dt * pred_velocity
+    
+    return actions  # 最终干净的动作序列
+```
+
+### 推理方法2：Video Generation推理（预测未来画面）
+
+**文件位置**: [MMDiT_ActionHeader_rope_embedding.py:1044-end](lda/model/modules/action_model/MMDiT_ActionHeader_rope_embedding.py#L1044)
+
+```python
+@torch.no_grad()
+def video_gen(self, vl_embs, state, history_actions, curr_imgs, embodiment_id, attention_mask):
+    """
+    推理时做Video Gen任务！
+    """
+    B = vl_embs.shape[0]
+    
+    # 1️⃣ 编码当前观测
+    curr_obs = self.encode_curr_obs(curr_imgs)
+    
+    # 2️⃣ 初始化纯噪声的next_obs
+    next_obs = torch.randn(B, num_obs_tokens, hidden_size)
+    
+    # 3️⃣ 🔑 关键：强制使用Video Gen Task Embedding
+    task_embedding = self.vg_embedding.unsqueeze(0).expand(B, -1)  # 只有VG！
+    
+    # 4️⃣ Denoising循环（对next_obs去噪）
+    for step in range(num_inference_steps):
+        # 使用learnable action tokens（和训练时一致）
+        action_features = self.action_learnable_tokens.expand(B, -1, -1)
+        
+        # 送入DiT
+        image_tokens, _ = self.model(
+            image_tokens=noisy_next_obs,
+            action_tokens=action_features,
+            text_tokens=vl_embs,
+            task_embedding=task_embedding,  # 🔑 VG embedding
+        )
+        
+        # 从image_tokens解码得到velocity
+        pred_velocity = self.obs_output_projector(image_tokens)
+        
+        # Euler积分去噪
+        next_obs = next_obs + dt * pred_velocity
+    
+    return next_obs  # 最终清晰的未来观测tokens
+```
+
+### 推理时的选择逻辑总结
+
+```
+用户需求                    调用方法              内部行为
+─────────────────────────────────────────────────────────────
+"给我动作指令"    →    model.predict_action()    →  task_emb=policy_embedding
+                                                    输出: 动作序列
+
+"预测未来画面"    →    model.video_gen()          →  task_emb=vg_embedding  
+                                                    输出: 未来观测tokens
+
+"物理仿真"        →    model.forward_dyn()        →  (未实现，但可以用VG近似)
+                                                    
+"逆向规划"        →    model.inverse_dyn()        →  (未实现，可用Policy近似)
+```
+
+---
+
+## 🎨 完整架构图
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        训练时 (Training)                                │
+│                                                                         │
+│  Batch (B=8)                                                            │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │ Sampler输出: [(idx, "policy"), (idx, "fd"), (idx, "id"), ...]  │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+│                              ↓                                         │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐     │
+│  │ Policy (2样本)    │  │ FD (2样本)        │  │ ID (2样本)        │     │
+│  │ Input:           │  │ Input:           │  │ Input:           │     │
+│  │ • Noisy Action   │  │ • Clean Action   │  │ • Noisy Action   │     │
+│  │ • Learnable Obs  │  │ • Noisy Next_Obs │  │ • GT Next_Obs    │     │
+│  │ Emb: policy_emb  │  │ Emb: fd_emb      │  │ Emb: id_emb      │     │
+│  └────────┬─────────┘  └────────┬─────────┘  └────────┬─────────┘     │
+│           │                     │                     │               │
+│  ┌────────┴─────────┐  ┌────────┴─────────┐  ┌────────┴─────────┐     │
+│  │ VG (2样本)        │                    │                     │     │
+│  │ Input:           │                    │                     │     │
+│  │ • Learnable Act  │                    │                     │     │
+│  │ • Noisy Next_Obs │                    │                     │     │
+│  │ Emb: vg_emb      │                    │                     │     │
+│  └────────┬─────────┘                    │                     │     │
+│           └──────────────────────────────┼─────────────────────┘     │
+│                                          ↓                            │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │              共享 DiT Transformer                               │   │
+│  │  输入: [All Actions] + [All Observations] + [Text] + [Task_Emb] │   │
+│  └────────────────────────┬───────────────────────────────────────┘   │
+│                           ↓                                           │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │              分别计算Loss                                       │   │
+│  │  Policy_Loss + ID_Loss + FD_Loss + VG_Loss = Total_Loss        │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        推理时 (Inference)                               │
+│                                                                         │
+│  场景A: 预测动作 (Policy)                                               │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │  Input: Curr_Observation + Text_Prompt                          │   │
+│  │  Task_Embedding: policy_embedding (固定!)                       │   │
+│  │  Next_Obs: learnable_tokens (占位符)                             │   │
+│  │  Loop: Denoise Actions from Noise → Clean                      │   │
+│  │  Output: Action_Sequence [B, T, action_dim]                    │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+│                                                                         │
+│  场景B: 视觉规划 (Video Gen)                                            │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │  Input: Curr_Observation + Text_Prompt                          │   │
+│  │  Task_Embedding: vg_embedding (固定!)                           │   │
+│  │  Action: learnable_tokens (占位符)                               │   │
+│  │  Loop: Denoise Next_Obs from Noise → Clear                     │   │
+│  │  Output: Future_Observation_Tokens                             │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 💡 设计哲学深度解读
+
+### 为什么这4个任务构成完整的"具身世界模型"？
+
+```
+                    ┌─────────────┐
+                    │   观测空间 O  │
+                    └──────┬──────┘
+                           │
+              ┌────────────┼────────────┐
+              ▼                         ▼
+    ┌─────────────────┐       ┌─────────────────┐
+    │  Policy (o→a)   │       │ VideoGen (o→o') │
+    │  "我该做什么？"  │       │ "世界会如何变？" │
+    └────────┬────────┘       └────────┬────────┘
+             │                         │
+             ▼                         ▼
+    ┌─────────────────┐       ┌─────────────────┐
+    │  动作空间 A      │◄──────│  未来观测 O'     │
+    └─────────────────┘       └─────────────────┘
+             ▲                         │
+             │                         │
+    ┌────────┴────────┐       ┌────────┴────────┐
+    │ InvDyn (o'+o→a) │       │ FwdDyn (o+a→o') │
+    │ "怎么做到？"     │       │ "会发生什么？"   │
+    └─────────────────┘       └─────────────────┘
+```
+
+**完整性证明**：
+
+- **Policy**: Agent的主观决策能力
+- **Forward Dynamics**: 客观物理规律建模
+- **Inverse Dynamics**: 因果推理能力（从结果反推原因）
+- **Video Gen**: 世界模型预测能力（无需知道具体动作）
+
+### 为什么共享同一个DiT？
+
+1. **知识迁移**：学习Forward Dynamics有助于理解物理规律，反过来提升Policy质量
+2. **参数效率**：不需要维护4个独立的大模型
+3. **统一表示**：所有任务都在同一个语义空间中操作
+
+### Task Embedding的作用
+
+```python
+# DiT内部可能的使用方式（推测）:
+class MMDiT:
+    def forward(self, ..., task_embedding):
+        # 将task_embedding注入到attention或FFN层
+        # 让模型知道当前在解决什么类型的问题
+        for layer in self.layers:
+            x = layer(x, task_embedding=task_embedding)  # 条件生成
+```
+
+**本质**：Task Embedding类似于"题目类型标签"，告诉模型这道题是选择题还是填空题。
+
+---
+
+## 🔍 调试技巧
+
+### 1. 查看实际的任务分布
+
+```python
+# 在训练循环中添加:
+for batch in dataloader:
+    tasks = batch['assigned_tasks']
+    print(f"Task distribution: {Counter(tasks)}")
+    # Output: Counter({'policy': 3, 'forward_dynamics': 2, 'inverse_dynamics': 2, 'video_gen': 1})
+```
+
+### 2. 验证Task Embedding是否在工作
+
+```python
+# 在forward中添加:
+print(f"Task embedding norm: {task_embedding.norm(dim=-1)}")
+print(f"Policy emb: {policy_embedding[:5].tolist()}")
+print(f"FD emb: {fd_embedding[:5].tolist()}")
+# 应该看到4组明显不同的向量值
+```
+
+### 3. 监控各个任务的Loss变化
+
+```python
+# TensorBoard/XView中分别记录:
+writer.add_scalar('train/policy_loss', policy_act_loss.item(), step)
+writer.add_scalar('train/inverse_loss', inverse_act_loss.item(), step)
+writer.add_scalar('train/dynamics_loss', obs_loss.item(), step)
+```
+
+---
+
+## 📚 相关代码文件清单
+
+| 文件                                                         | 作用                               |
+| ------------------------------------------------------------ | ---------------------------------- |
+| [MMDiT_ActionHeader_rope_embedding.py](lda/model/modules/action_model/MMDiT_ActionHeader_rope_embedding.py) | 主模型，包含4任务定义和forward逻辑 |
+| [task_batch_sampler.py](lda/dataloader/task_batch_sampler.py) | 数据层任务采样器                   |
+| [datasets.py](lda/dataloader/gr00t_lerobot/datasets.py)      | 数据集，接收(index, task)元组      |
+| [LDA_pretrain.yaml](lda/config/training/LDA_pretrain.yaml)   | 配置文件，定义任务权重             |
+| [\_\_init\_\_.py](lda/dataloader/__init__.py)                | DataLoader构建入口                 |
+
+---
+
+## 🎯 总结
+
+**LDA-1B的四任务机制是一个精巧的设计**：
+
+1. **数据层**：通过`DistributedTaskBatchSampler`保证每个batch都有4种任务
+2. **模型层**：通过4个独立的`Task Embedding`向量区分任务
+3. **输入层**：每种任务使用**不同的输入组合**（noisy/clean/learnable）
+4. **输出层**：通过不同的decoder（action decoder vs obs projector）计算loss
+5. **推理层**：提供专门的接口(`predict_action`, `video_gen`)自动选择对应任务
+
+这种设计让一个模型同时学会了：
+
+- **执行能力** (Policy)
+- **模拟能力** (Forward Dynamics)
+- **规划能力** (Inverse Dynamics)
+- **想象能力** (Video Gen)
+
+从而构成了真正的**具身世界模型**！🌟
