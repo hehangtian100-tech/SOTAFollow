@@ -37,6 +37,7 @@
 |:-----|:----:|:---------|:-----|
 | **Being-H0.7** ⭐ | 2026 | 先验-后验双分支对齐，MoT 高效实现，6 仿真 SOTA | [精读](./WorldModel/Being-H0.7_精读报告.md) |
 | **Latent-WAM** ⭐ | 2026 | SCWE 16-query 压缩 + WorldMirror 几何蒸馏，感知自由 89.3 | [精读](./WorldModel/Latent-WAM_精读报告.md) |
+| **AIM** ⭐ | 2026 | 空间价值图桥接未来视频生成与动作解码，RoboTwin 2.0 平均 93.1 | [精读](./WorldModel/AIM_精读报告.md) |
 | **Epona** | 2025 | 自回归扩散世界模型，Chain-of-Forward 训练 | [精读](./WorldModel/Epona-精读报告.md) |
 | **Fast-WAM** | 2026 | 测试时想象是否必要？端到端规划加速 48× | [精读](./WorldModel/Fast-WAM_精读报告.md) |
 | **Uni-World VLA** | ECCV 2026 | 交错式世界建模，冻结幻觉问题，PDMS 89.4 | [精读](./WorldModel/Uni-World_VLA-论文精读-ECCV2026.md) |
