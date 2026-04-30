@@ -99,7 +99,7 @@
 | 🧠 **世界模型** | 自回归框架、训练 Loss 设计 | [详情](#世界模型) |
 | 📍 **位置编码** | RoPE、3DPE、mRoPE（DVGT-2 时序融合） | [详情](#位置编码) |
 | 🧩 **记忆机制** | MEM/GMP、MemoryVLA | [详情](#记忆机制) |
-
+| 🌊 **Diffusion** | GuideFlow 约束引导流匹配、CVF/CF/RFE 三层约束机制 | [精读](./FM基础知识/Diffusion/GuideFlow_精读报告.md) |
 ### 📄 详细列表
 
 | 主题 | 简介 | 文档 |
@@ -120,6 +120,16 @@
 | **GCT** | 几何上下文注意力，ETH3D 98.98% F1 | [精读](./FM基础知识/流式三维重建-几何上下文Transformer-精读报告.md) |
 | **PETR** | 3D 检测：3D 位置编码融合相机几何 | [精读](./FM基础知识/PETR-论文精读.md) |
 | **PETR V2** | Feature-Guided Position Encoding、时序融合 | [精读](./FM基础知识/PETR%20V2-论文精读.md) |
+| **GuideFlow** ⭐ | 约束引导流匹配，端到端可控多模态规划，CVPR'26 | [精读](./FM基础知识/Diffusion/GuideFlow_精读报告.md) |
+---
+
+## 🔨 手撕
+
+> 逐行代码级模型拆解系列（来源：小冬瓜AIGC）
+
+| 篇目 | 主题 | 文档 |
+|:----:|:-----|:-----|
+| **#1** | DeepSeek-V4 模型架构（HCA/CSA/SWA + MoE + mHC） | [查看](./手撕/手撕DeepSeek-V4-1-模型架构.md) |
 
 ---
 
