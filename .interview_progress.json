@@ -85,8 +85,8 @@
       "processed_at": "2026-04-28T08:01:00.000001"
     },
     "VLA/Actuate2025_SergeyLevine_精读报告.md": {
-      "interview_date": "20260428",
-      "processed_at": "2026-04-28T08:01:00.000002"
+      "interview_date": "20260501",
+      "processed_at": "2026-05-01T08:01:00.000002"
     },
     "WorldModel/Uni-World_VLA-论文精读-ECCV2026.md": {
       "interview_date": "20260428",
@@ -200,10 +200,10 @@
       "interview_date": "20260501",
       "processed_at": "2026-05-01T08:01:00.000001"
     },
-    "VLA/Actuate2025_SergeyLevine_精读报告.md": {
-      "interview_date": "20260501",
-      "processed_at": "2026-05-01T08:01:00.000002"
+    "FM基础知识/Diffusion/GuideFlow_精读报告.md": {
+      "interview_date": "20260502",
+      "processed_at": "2026-05-02T08:00:00.000000"
     }
   },
-  "last_run": "20260501"
+  "last_run": "20260502"
 }
