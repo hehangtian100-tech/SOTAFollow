@@ -299,7 +299,23 @@
     "面筋/LLM/interview_20260509.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
+    },
+    "面筋/RL/interview_20260510.md": {
+      "interview_date": "20260510",
+      "processed_at": "2026-05-10T08:03:45.344230"
+    },
+    "面筋/VLA/interview_20260510.md": {
+      "interview_date": "20260510",
+      "processed_at": "2026-05-10T08:03:45.344230"
+    },
+    "面筋/WM/interview_20260510.md": {
+      "interview_date": "20260510",
+      "processed_at": "2026-05-10T08:03:45.344230"
+    },
+    "面筋/LLM/interview_20260510.md": {
+      "interview_date": "20260510",
+      "processed_at": "2026-05-10T08:03:45.344230"
     }
   },
-  "last_run": "20260509"
+  "last_run": "20260510"
 }
