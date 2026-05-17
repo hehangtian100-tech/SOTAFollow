@@ -1,417 +1,420 @@
 {
   "processed": {
-    "RL/XXPO\u7cfb\u5217\u7b97\u6cd5\u7cbe\u8bfb\u62a5\u544a.md": {
+    "RL/XXPO系列算法精读报告.md": {
       "interview_date": "20260425",
       "processed_at": "2026-04-25T10:01:33.689733"
     },
-    "RL/Near-Future_Policy_Optimization_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "RL/Near-Future_Policy_Optimization_精读报告.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "WorldModel/Being-H0.7_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "WorldModel/Being-H0.7_精读报告.md": {
       "interview_date": "20260425",
       "processed_at": "2026-04-25T10:01:33.689743"
     },
-    "WorldModel/Epona-\u7cbe\u8bfb\u62a5\u544a.md": {
+    "WorldModel/Epona-精读报告.md": {
       "interview_date": "20260425",
       "processed_at": "2026-04-25T10:01:33.689744"
     },
-    "RL/PPO_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "RL/PPO_精读报告.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "RL/RAD_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "RL/RAD_精读报告.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "RL/FlowGRPO_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "RL/FlowGRPO_精读报告.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "VLA/\u03c00.7_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "VLA/π0.7_精读报告.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "VLA/VISTA_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "VLA/VISTA_精读报告.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "WorldModel/Fast-WAM_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "WorldModel/Fast-WAM_精读报告.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "WorldModel/Latent-WAM_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "WorldModel/Latent-WAM_精读报告.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "WorldModel/DreamerAD-\u8bba\u6587\u89e3\u8bfb.md": {
+    "WorldModel/DreamerAD-论文解读.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/FlashAttention-\u8bba\u6587\u7cbe\u8bfb-arXiv2205.14135.md": {
+    "FM基础知识/FlashAttention-论文精读-arXiv2205.14135.md": {
       "interview_date": "20260426",
       "processed_at": "2026-04-26T08:09:34.910704"
     },
-    "RL/RAD-2_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "RL/RAD-2_精读报告.md": {
       "interview_date": "20260427",
       "processed_at": "2026-04-27T08:04:53.271665"
     },
-    "VLA/VLA-JEPA_\u8bba\u6587\u7cbe\u8bfb-arXiv2602.10098.md": {
+    "VLA/VLA-JEPA_论文精读-arXiv2602.10098.md": {
       "interview_date": "20260427",
       "processed_at": "2026-04-27T08:04:53.271668"
     },
-    "VLA/DVGT-2_\u8bba\u6587\u7cbe\u8bfb-arXiv2512.16919.md": {
+    "VLA/DVGT-2_论文精读-arXiv2512.16919.md": {
       "interview_date": "20260427",
       "processed_at": "2026-04-27T08:04:53.271669"
     },
-    "VLA/MINT/MINT-\u8bba\u6587\u7cbe\u8bfb-arXiv2602.08602.md": {
+    "VLA/MINT/MINT-论文精读-arXiv2602.08602.md": {
       "interview_date": "20260427",
       "processed_at": "2026-04-27T08:04:53.271670"
     },
-    "WorldModel/LeWorldModel-\u8bba\u6587\u7cbe\u8bfb\u62a5\u544a.md": {
+    "WorldModel/LeWorldModel-论文精读报告.md": {
       "interview_date": "20260427",
       "processed_at": "2026-04-27T08:04:53.271670"
     },
-    "WorldModel/MV-VDP_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "WorldModel/MV-VDP_精读报告.md": {
       "interview_date": "20260427",
       "processed_at": "2026-04-27T08:04:53.271671"
     },
-    "VLA/MemoryVLA_\u8bba\u6587\u7cbe\u8bfb-arXiv2508.19236.md": {
+    "VLA/MemoryVLA_论文精读-arXiv2508.19236.md": {
       "interview_date": "20260428",
       "processed_at": "2026-04-28T08:01:00.000000"
     },
-    "VLA/Vega_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "VLA/Vega_精读报告.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "VLA/Actuate2025_SergeyLevine_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "VLA/Actuate2025_SergeyLevine_精读报告.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "WorldModel/Uni-World_VLA-\u8bba\u6587\u7cbe\u8bfb-ECCV2026.md": {
+    "WorldModel/Uni-World_VLA-论文精读-ECCV2026.md": {
       "interview_date": "20260428",
       "processed_at": "2026-04-28T08:01:00.000003"
     },
-    "WorldModel/LingBot-VA_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "WorldModel/LingBot-VA_精读报告.md": {
       "interview_date": "20260428",
       "processed_at": "2026-04-28T08:01:00.000004"
     },
-    "WorldModel/imge_tokenizer\u6280\u672f\u8be6\u89e3.md": {
+    "WorldModel/imge_tokenizer技术详解.md": {
       "interview_date": "20260428",
       "processed_at": "2026-04-28T08:01:00.000005"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/TiTok-\u8bba\u6587\u7cbe\u8bfb-arXiv2406.07550.md": {
+    "FM基础知识/TiTok-论文精读-arXiv2406.07550.md": {
       "interview_date": "20260428",
       "processed_at": "2026-04-28T08:01:00.000006"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/mRoPE-\u591a\u7ef4\u65cb\u8f6c\u4f4d\u7f6e\u7f16\u7801\u8be6\u89e3.md": {
+    "FM基础知识/mRoPE-多维旋转位置编码详解.md": {
       "interview_date": "20260428",
       "processed_at": "2026-04-28T08:01:00.000007"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/WorldModel\u8bad\u7ec3Loss\u8bbe\u8ba1\u8be6\u89e3.md": {
+    "FM基础知识/WorldModel训练Loss设计详解.md": {
       "interview_date": "20260428",
       "processed_at": "2026-04-28T08:01:00.000008"
     },
-    "VLA/DVGT-2_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "VLA/DVGT-2_精读报告.md": {
       "interview_date": "20260429",
       "processed_at": "2026-04-29T08:01:00.000000"
     },
-    "WorldModel/\u4ece\u8868\u5f81\u5b66\u4e60\u89d2\u5ea6\u770b_Being-H0.7_Fast-WAM\u4e0e\u03c00.7.md": {
+    "WorldModel/从表征学习角度看_Being-H0.7_Fast-WAM与π0.7.md": {
       "interview_date": "20260429",
       "processed_at": "2026-04-29T08:01:00.000000"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/LoRA-\u8bba\u6587\u7cbe\u8bfb-arXiv2106.09685.md": {
+    "FM基础知识/LoRA-论文精读-arXiv2106.09685.md": {
       "interview_date": "20260429",
       "processed_at": "2026-04-29T08:01:00.000000"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/FlashAttention2-\u8bba\u6587\u7cbe\u8bfb-arXiv2307.08691.md": {
+    "FM基础知识/FlashAttention2-论文精读-arXiv2307.08691.md": {
       "interview_date": "20260429",
       "processed_at": "2026-04-29T08:01:00.000000"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/Kimi_Attention_Residuals_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "FM基础知识/Kimi_Attention_Residuals_精读报告.md": {
       "interview_date": "20260429",
       "processed_at": "2026-04-29T08:01:00.000000"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/PETR-\u8bba\u6587\u7cbe\u8bfb.md": {
+    "FM基础知识/PETR-论文精读.md": {
       "interview_date": "20260429",
       "processed_at": "2026-04-29T08:01:00.000000"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/ZeRO-\u8bba\u6587\u7cbe\u8bfb-sc20.md": {
+    "FM基础知识/ZeRO-论文精读-sc20.md": {
       "interview_date": "20260429",
       "processed_at": "2026-04-29T08:01:00.000000"
     },
-    "WorldModel/\u4e16\u754c\u6a21\u578bEP04_Motus_\u77f3\u9ebb\u7b14\u8bb0.md": {
+    "WorldModel/世界模型EP04_Motus_石麻笔记.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566486"
     },
-    "WorldModel/\u4e16\u754c\u6a21\u578b_\u89c6\u9891\u7b14\u8bb0_\u7845\u8c37101.md": {
+    "WorldModel/世界模型_视频笔记_硅谷101.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566495"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/PETR V2-\u8bba\u6587\u7cbe\u8bfb.md": {
+    "FM基础知识/PETR V2-论文精读.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566496"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/SwiftVGGT_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "FM基础知识/SwiftVGGT_精读报告.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566497"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/VGGT-\u8bba\u6587\u7cbe\u8bfb-arXiv2503.11651.md": {
+    "FM基础知识/VGGT-论文精读-arXiv2503.11651.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566498"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/WorldModel-VLA\u81ea\u56de\u5f52\u6846\u67b6\u8be6\u89e3.md": {
+    "FM基础知识/WorldModel-VLA自回归框架详解.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566499"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/VQVAE\u89c6\u89c9Tokenizer\u8be6\u89e3.md": {
+    "FM基础知识/VQVAE视觉Tokenizer详解.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566500"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/RoPE\u53ca3DPE\u6280\u672f\u8be6\u89e3.md": {
+    "FM基础知识/RoPE及3DPE技术详解.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566502"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/\u5927\u6a21\u578bRoadmap.md": {
+    "FM基础知识/大模型Roadmap.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:14.566504"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/\u6d41\u5f0f\u4e09\u7ef4\u91cd\u5efa-\u51e0\u4f55\u4e0a\u4e0b\u6587Transformer-\u7cbe\u8bfb\u62a5\u544a.md": {
+    "FM基础知识/流式三维重建-几何上下文Transformer-精读报告.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:28.851012"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/DCT\uff08\u79bb\u6563\u4f59\u5f26\u53d8\u6362\uff09\u8be6\u89e3.md": {
+    "FM基础知识/DCT（离散余弦变换）详解.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:28.851020"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/MEM/MemoryVLA_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "FM基础知识/MEM/MemoryVLA_精读报告.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:28.851022"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/MEM/GMP_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "FM基础知识/MEM/GMP_精读报告.md": {
       "interview_date": "20260430",
       "processed_at": "2026-04-30T08:05:28.851023"
     },
-    "WorldModel/AIM_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "WorldModel/AIM_精读报告.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "WorldModel/LDA-1B\u8bba\u6587\u7c97\u8bfb\u62a5\u544a.md": {
+    "WorldModel/LDA-1B论文粗读报告.md": {
       "interview_date": "20260501",
       "processed_at": "2026-05-01T08:01:00.000001"
     },
-    "FM\u57fa\u7840\u77e5\u8bc6/Diffusion/GuideFlow_\u7cbe\u8bfb\u62a5\u544a.md": {
+    "FM基础知识/Diffusion/GuideFlow_精读报告.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "\u9762\u7b4b/RL/interview_20260503.md": {
+    "面筋/RL/interview_20260503.md": {
       "interview_date": "20260503",
       "processed_at": "2026-05-03T08:05:23.245945"
     },
-    "\u9762\u7b4b/VLA/interview_20260503.md": {
+    "面筋/VLA/interview_20260503.md": {
       "interview_date": "20260503",
       "processed_at": "2026-05-03T08:05:23.245948"
     },
-    "\u9762\u7b4b/WM/interview_20260503.md": {
+    "面筋/WM/interview_20260503.md": {
       "interview_date": "20260503",
       "processed_at": "2026-05-03T08:05:23.245949"
     },
-    "\u9762\u7b4b/LLM/interview_20260503.md": {
+    "面筋/LLM/interview_20260503.md": {
       "interview_date": "20260503",
       "processed_at": "2026-05-03T08:05:23.245950"
     },
-    "\u9762\u7b4b/RL/interview_20260505.md": {
+    "面筋/RL/interview_20260505.md": {
       "interview_date": "20260505",
       "processed_at": "2026-05-05T08:01:00.000000"
     },
-    "\u9762\u7b4b/VLA/interview_20260505.md": {
+    "面筋/VLA/interview_20260505.md": {
       "interview_date": "20260505",
       "processed_at": "2026-05-05T08:01:00.000000"
     },
-    "\u9762\u7b4b/WM/interview_20260505.md": {
+    "面筋/WM/interview_20260505.md": {
       "interview_date": "20260505",
       "processed_at": "2026-05-05T08:01:00.000000"
     },
-    "\u9762\u7b4b/LLM/interview_20260505.md": {
+    "面筋/LLM/interview_20260505.md": {
       "interview_date": "20260505",
       "processed_at": "2026-05-05T08:01:00.000000"
     },
-    "\u9762\u7b4b/RL/interview_20260506.md": {
+    "面筋/RL/interview_20260506.md": {
       "interview_date": "20260506",
       "processed_at": "2026-05-06T08:00:00.000000"
     },
-    "\u9762\u7b4b/VLA/interview_20260506.md": {
+    "面筋/VLA/interview_20260506.md": {
       "interview_date": "20260506",
       "processed_at": "2026-05-06T08:00:00.000000"
     },
-    "\u9762\u7b4b/WM/interview_20260506.md": {
+    "面筋/WM/interview_20260506.md": {
       "interview_date": "20260506",
       "processed_at": "2026-05-06T08:00:00.000000"
     },
-    "\u9762\u7b4b/LLM/interview_20260506.md": {
+    "面筋/LLM/interview_20260506.md": {
       "interview_date": "20260506",
       "processed_at": "2026-05-06T08:00:00.000000"
     },
-    "\u9762\u7b4b/RL/interview_20260507.md": {
+    "面筋/RL/interview_20260507.md": {
       "interview_date": "20260507",
       "processed_at": "2026-05-07T08:06:39"
     },
-    "\u9762\u7b4b/VLA/interview_20260507.md": {
+    "面筋/VLA/interview_20260507.md": {
       "interview_date": "20260507",
       "processed_at": "2026-05-07T08:06:39"
     },
-    "\u9762\u7b4b/WM/interview_20260507.md": {
+    "面筋/WM/interview_20260507.md": {
       "interview_date": "20260507",
       "processed_at": "2026-05-07T08:06:39"
     },
-    "\u9762\u7b4b/LLM/interview_20260507.md": {
+    "面筋/LLM/interview_20260507.md": {
       "interview_date": "20260507",
       "processed_at": "2026-05-07T08:06:39"
     },
-    "\u9762\u7b4b/RL/interview_20260508.md": {
+    "面筋/RL/interview_20260508.md": {
       "interview_date": "20260508",
       "processed_at": "2026-05-08T08:00:00.000000"
     },
-    "\u9762\u7b4b/VLA/interview_20260508.md": {
+    "面筋/VLA/interview_20260508.md": {
       "interview_date": "20260508",
       "processed_at": "2026-05-08T08:00:00.000000"
     },
-    "\u9762\u7b4b/WM/interview_20260508.md": {
+    "面筋/WM/interview_20260508.md": {
       "interview_date": "20260508",
       "processed_at": "2026-05-08T08:00:00.000000"
     },
-    "\u9762\u7b4b/LLM/interview_20260508.md": {
+    "面筋/LLM/interview_20260508.md": {
       "interview_date": "20260508",
       "processed_at": "2026-05-08T08:00:00.000000"
     },
-    "\u9762\u7b4b/RL/interview_20260509.md": {
+    "面筋/RL/interview_20260509.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "\u9762\u7b4b/VLA/interview_20260509.md": {
+    "面筋/VLA/interview_20260509.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "\u9762\u7b4b/WM/interview_20260509.md": {
+    "面筋/WM/interview_20260509.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "\u9762\u7b4b/LLM/interview_20260509.md": {
+    "面筋/LLM/interview_20260509.md": {
       "interview_date": "20260509",
       "processed_at": "2026-05-09T08:04:40.208356"
     },
-    "\u9762\u7b4b/RL/interview_20260510.md": {
+    "面筋/RL/interview_20260510.md": {
       "interview_date": "20260510",
       "processed_at": "2026-05-10T08:03:45.344230"
     },
-    "\u9762\u7b4b/VLA/interview_20260510.md": {
+    "面筋/VLA/interview_20260510.md": {
       "interview_date": "20260510",
       "processed_at": "2026-05-10T08:03:45.344230"
     },
-    "\u9762\u7b4b/WM/interview_20260510.md": {
+    "面筋/WM/interview_20260510.md": {
       "interview_date": "20260510",
       "processed_at": "2026-05-10T08:03:45.344230"
     },
-    "\u9762\u7b4b/LLM/interview_20260510.md": {
+    "面筋/LLM/interview_20260510.md": {
       "interview_date": "20260510",
       "processed_at": "2026-05-10T08:03:45.344230"
     },
-    "\u9762\u7b4b/RL/interview_20260511.md": {
+    "面筋/RL/interview_20260511.md": {
       "interview_date": "20260511",
       "processed_at": "2026-05-11T08:02:36.556721"
     },
-    "\u9762\u7b4b/VLA/interview_20260511.md": {
+    "面筋/VLA/interview_20260511.md": {
       "interview_date": "20260511",
       "processed_at": "2026-05-11T08:02:36.556721"
     },
-    "\u9762\u7b4b/WM/interview_20260511.md": {
+    "面筋/WM/interview_20260511.md": {
       "interview_date": "20260511",
       "processed_at": "2026-05-11T08:02:36.556721"
     },
-    "\u9762\u7b4b/LLM/interview_20260511.md": {
+    "面筋/LLM/interview_20260511.md": {
       "interview_date": "20260511",
       "processed_at": "2026-05-11T08:02:36.556721"
     },
-    "\u9762\u7b4b/RL/interview_20260512.md": {
+    "面筋/RL/interview_20260512.md": {
       "interview_date": "20260512",
       "processed_at": "2026-05-12T08:06:27.765026"
     },
-    "\u9762\u7b4b/VLA/interview_20260512.md": {
+    "面筋/VLA/interview_20260512.md": {
       "interview_date": "20260512",
       "processed_at": "2026-05-12T08:06:27.765026"
     },
-    "\u9762\u7b4b/WM/interview_20260512.md": {
+    "面筋/WM/interview_20260512.md": {
       "interview_date": "20260512",
       "processed_at": "2026-05-12T08:06:27.765026"
     },
-    "\u9762\u7b4b/LLM/interview_20260512.md": {
+    "面筋/LLM/interview_20260512.md": {
       "interview_date": "20260512",
       "processed_at": "2026-05-12T08:06:27.765026"
     },
-    "\u9762\u7b4b/RL/interview_20260513.md": {
+    "面筋/RL/interview_20260513.md": {
       "interview_date": "20260513",
       "processed_at": "2026-05-13T08:03:27.149075"
     },
-    "\u9762\u7b4b/VLA/interview_20260513.md": {
+    "面筋/VLA/interview_20260513.md": {
       "interview_date": "20260513",
       "processed_at": "2026-05-13T08:03:27.149075"
     },
-    "\u9762\u7b4b/WM/interview_20260513.md": {
+    "面筋/WM/interview_20260513.md": {
       "interview_date": "20260513",
       "processed_at": "2026-05-13T08:03:27.149075"
     },
-    "\u9762\u7b4b/LLM/interview_20260513.md": {
+    "面筋/LLM/interview_20260513.md": {
       "interview_date": "20260513",
       "processed_at": "2026-05-13T08:03:27.149075"
     },
-    "\u9762\u7b4b/RL/interview_20260514.md": {
+    "面筋/RL/interview_20260514.md": {
       "interview_date": "20260514",
       "processed_at": "2026-05-14T08:06:23.943403"
     },
-    "\u9762\u7b4b/VLA/interview_20260514.md": {
+    "面筋/VLA/interview_20260514.md": {
       "interview_date": "20260514",
       "processed_at": "2026-05-14T08:06:23.943403"
     },
-    "\u9762\u7b4b/WM/interview_20260514.md": {
+    "面筋/WM/interview_20260514.md": {
       "interview_date": "20260514",
       "processed_at": "2026-05-14T08:06:23.943403"
     },
-    "\u9762\u7b4b/LLM/interview_20260514.md": {
+    "面筋/LLM/interview_20260514.md": {
       "interview_date": "20260514",
       "processed_at": "2026-05-14T08:06:23.943403"
     },
-    "\u9762\u7b4b/RL/interview_20260515.md": {
+    "面筋/RL/interview_20260515.md": {
       "interview_date": "20260515",
       "processed_at": "2026-05-15T08:06:56.348519"
     },
-    "\u9762\u7b4b/VLA/interview_20260515.md": {
+    "面筋/VLA/interview_20260515.md": {
       "interview_date": "20260515",
       "processed_at": "2026-05-15T08:06:56.348527"
     },
-    "\u9762\u7b4b/WM/interview_20260515.md": {
+    "面筋/WM/interview_20260515.md": {
       "interview_date": "20260515",
       "processed_at": "2026-05-15T08:06:56.348529"
     },
-    "\u9762\u7b4b/LLM/interview_20260515.md": {
+    "面筋/LLM/interview_20260515.md": {
       "interview_date": "20260515",
       "processed_at": "2026-05-15T08:06:56.348530"
     },
-    "\u9762\u7b4b/RL/interview_20260516.md": {
+    "面筋/RL/interview_20260516.md": {
       "interview_date": "20260516",
       "processed_at": "2026-05-16T08:01:00.000000"
     },
-    "\u9762\u7b4b/VLA/interview_20260516.md": {
+    "面筋/VLA/interview_20260516.md": {
       "interview_date": "20260516",
       "processed_at": "2026-05-16T08:01:00.000000"
     },
-    "\u9762\u7b4b/WM/interview_20260516.md": {
+    "面筋/WM/interview_20260516.md": {
       "interview_date": "20260516",
       "processed_at": "2026-05-16T08:01:00.000000"
     },
-    "\u9762\u7b4b/LLM/interview_20260516.md": {
+    "面筋/LLM/interview_20260516.md": {
       "interview_date": "20260516",
       "processed_at": "2026-05-16T08:01:00.000000"
     }
   },
-  "last_run": "20260516"
+  "last_run": "20260516",
+  "notes": {
+    "20260517": "Generated general domain interview questions (all papers previously processed)"
+  }
 }
